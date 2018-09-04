@@ -79,7 +79,7 @@ class LandingPage extends Component {
 
     render() {
         console.log('prosp:', this.props.ingredients);
-        const colorArray = ['#C98474','#EFB951', '#874C62'];
+        const colorArray = ['#954B43','#C06014','#EFB951', '#874C62'];
         const ingredient = this.props.ingredients.map((item, index) => {
             return (<div key={index} className='row'>
                 <div className='col s10'>
@@ -101,7 +101,7 @@ class LandingPage extends Component {
         return (
             <div className='container'>
                 <div className='text center'>
-                    <h1>Enter your Ingredients</h1>
+                    <h3>Enter your Ingredients</h3>
                 </div>
                 {this.props.ingredients.length < 3 ?
                     <div className='search_field'>
