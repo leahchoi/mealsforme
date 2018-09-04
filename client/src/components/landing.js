@@ -5,8 +5,8 @@ import minus from '../assets/images/minus.png';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { searchIngredient, addIngredeints, removeIngredients, clearUserIngredientInputs } from '../actions';
-import bg_image from '../assets/images/bg.jpg';
-//import bg_image from '../assets/images/dogbg.jpg';
+// import bg_image from '../assets/images/bg.jpg';
+import bg_image from '../assets/images/mobile-bg.png';
 import slogan from '../assets/images/chicken_soup.gif';
 import commonIngredientsRef from '../assets/dummy_data/commonIngredientsRef';
 
@@ -23,7 +23,7 @@ class LandingPage extends Component {
     }
 
     componentDidMount() {
-        document.body.style.backgroundColor = '#FEFAE0';
+        document.body.style.backgroundImage = `url(${bg_image})`;
     }
 
     userInputHandler(event) {
@@ -101,7 +101,7 @@ class LandingPage extends Component {
         return (
             <div className='container'>
                 <div className='text center'>
-                    <h3>Enter your Ingredients</h3>
+                    <h4>Enter your Ingredients</h4>
                 </div>
                 {this.props.ingredients.length < 3 ?
                     <div className='search_field'>
