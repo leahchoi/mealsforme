@@ -4,18 +4,16 @@
     height: 10vh;
     justify-content: space-between;
     background-color: #98BF5C;
-    margin-bottom: 30px;
-}
-.header{
+    /* margin-bottom: 30px; */
     position: absolute;
     top: 0;
     right: 0;
     z-index: 1000;
 }
 
-.headerBanner{
+/* .headerBanner{
     : sticky;
-}
+} */
 
 .logo{
     width: 100px;

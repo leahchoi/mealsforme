@@ -21,9 +21,9 @@ class LandingPage extends Component {
         };
     }
 
-    componentDidMount() {
-        document.body.style.backgroundImage = url(`${bg_image}`);
-    }
+    // componentDidMount() {
+    //     document.body.style.backgroundImage = `url(${bg_image})`;
+    // }
 
     userInputHandler(event) {
         this.setState({
@@ -108,13 +108,13 @@ class LandingPage extends Component {
         });
 
         return (
-            <div className='container'>
+            <div className='container bgImg ' style = {{backgroundImage:`url(${bg_image})`}}>
                 <div className='text center'>
-                    <h1>Enter your Ingredients</h1>
+                    <h4 className='margin-top-zero'>Enter your Ingredients</h4>
                 </div>
                 {this.props.ingredients.length < 3 ?
                     <div className='search_field'>
-                        <div className='col s12'>
+                        <div className='col s12'> 
                             <input placeholder='Insert upto 3 ingredents' className='col s6 left' onChange={(event) => this.userInputHandler(event)} value={this.state.currentIngredientInput} />
                             <img id="ingAddMinImg" src={plus} onClick={this.addIngredientToListFromInput.bind(this)} />
                         </div>

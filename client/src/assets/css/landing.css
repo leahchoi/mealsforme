@@ -3,6 +3,13 @@
     background-color: #00d3ff;
 }
 
+.bgImg{
+    background-repeat: no-repeat;
+    background-size: cover; 
+    width: 100%;
+    height: 100vh;
+}
+
 #ingAddMinImg {
     width: 50px;
     margin: auto;
@@ -10,7 +17,7 @@
 
 .landPgSearchBtn {
     width: 50vw;
-    background-color: #527E45;
+    background-color: #485B4C;
 }
 .landPgSearchBtn > * {
     color: white;
@@ -39,6 +46,10 @@ button{
     text-align: center;
     margin: 10px auto;
     text-shadow: 2px 2px 7px #8e8e8e;
+}
+
+.margin-top-zero{
+    margin-top: 0;
 }
 @keyframes swing {
     0%{
