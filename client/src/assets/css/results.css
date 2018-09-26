@@ -3,9 +3,6 @@
     display: flex;
     justify-content: space-evenly;
 }
-h3{
-    display: inline-block;
-}
 .dishPicture{
     width: 30vw;
     height: 15vh;
@@ -13,6 +10,42 @@ h3{
     background-color: grey;
     border-radius: 50%;
 }
-button{
-    background-color: lightgray;
+.main-content{
+    background-color: #F5F5F5;
+}
+.loading-spinner, .goback{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.goback{
+    display: block;
+}
+.loading-spinner > *{
+    font-size: 6rem;
+}
+
+.resultHeader{
+    margin-top: 0px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+h5{
+    margin-top: 0;
+}
+.goToTop{
+    display: inline-block;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.goToTop > i{
+    font-size: 3rem;
+    margin: auto;
+}
+.hideGoToTop{
+    display: none;
 }

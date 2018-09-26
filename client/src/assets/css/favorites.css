@@ -1,0 +1,21 @@
+
+
+.dishContainer > img{
+    width: 30vmin;
+    height: 30vmin;
+    margin-top: -15%;
+    border-radius: 50%;
+}
+.favTrash{
+    margin-top: 5%;
+    margin-right: -24px;
+}
+.card-panel{
+    height: 135px;
+    border: solid 3px #7F977C;
+    background-color: #F5F5F5;
+}
+.individualPanel{
+    display: flex;
+    justify-content: space-evenly;
+}

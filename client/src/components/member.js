@@ -8,9 +8,11 @@ function Member(props){
                 <img className='memberImg' src={props.image} />
             </div>
             <div className='memberInfo'>
-                <h5 className='left-align'>{props.name}</h5>
-                <p onClick={()=>props.clicked(props.linkedin)}>{props.linkedin}</p>
-                <p className='left-align'>{props.github}</p>
+                <h5 className='left-align nameOfPerson'>{props.name}</h5>
+                <p className='title'>{props.title} </p>
+                <a className='linkedin' onClick={()=>props.clicked(props.linkedin)}>Linkedin</a>
+                <br/>
+                <a className='github' onClick={()=>props.clicked(props.github)} className='left-align'>GitHub</a>
             </div>
         </div>
     );

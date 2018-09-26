@@ -1,31 +1,41 @@
 {
-  "name": "react_starter",
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:8000"
+    }
+  },
+  "name": "meals_for_me",
   "version": "1.0.0",
-  "description": "Starting setup for react redux project",
+  "description": "Recipe finder",
   "main": "index.js",
   "scripts": {
     "start": "node dev_server.js",
     "bundle": "webpack --config webpack.prod.js --progress",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Scott Bowler",
+  "author": "Meals For Me",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Learning-Fuze/react_starter.git"
+    "url": "https://github.com/Learning-Fuze/c618_what_to_food.git"
   },
   "dependencies": {
     "ajv": "^5.5.2",
     "ajv-keywords": "^2.1.1",
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
+    "font-awesome": "^4.7.0",
     "materialize-css": "^1.0.0-rc.2",
     "react": "^16.4.0",
+    "react-bootstrap": "^0.32.3",
     "react-burger-menu": "^2.5.2",
     "react-dom": "^16.4.0",
+    "react-materialize": "^2.4.5",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "redux-form": "^7.4.2",
+    "redux-promise": "^0.6.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

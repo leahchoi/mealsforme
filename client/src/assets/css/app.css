@@ -1,6 +1,7 @@
-@font-face {
-    font-family: quest;
-    src: url(../fonts/quest.ttf);
+*{
+font-family: "Times New Roman",
+Times,
+serif
 }
 
 body {
@@ -10,7 +11,6 @@ body {
 .app {
     background-color: #000;
     color: #FFF;
-    font-family: quest;
     font-size: 30px;
     padding: 50px;
     text-align: center;

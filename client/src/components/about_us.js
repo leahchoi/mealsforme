@@ -1,41 +1,25 @@
 import React, { Component } from 'react';
 import '../assets/css/about_us.css';
 import Member from './member';
-import leah from '../assets/images/leah.jpg';
-import sudip from '../assets/images/sudip.png';
-import sean from '../assets/images/sean.png';
-import josh from '../assets/images/josh.jpg';
+import leah from '../assets/images/leah-min.jpg';
+import sudip from '../assets/images/sudip-min.jpg';
+import sean from '../assets/images/sean-min.jpg';
+import josh from '../assets/images/josh-min.jpg';
 
 
 class AboutUs extends Component {
     constructor(props) {
         super(props);
         this.members = [
-            { name: 'Leah Choi', github: 'a.a', linkedin: 'l.l', image: leah},
-            { name: 'Josh Sohn', github: 'a.a', linkedin: 'l.l', image: josh},
-            { name: 'Sudip Baral', github: 'https://github.com/pujasudip', linkedin: 'https://www.linkedin.com/in/sudip-baral-5a2a96113/', image: sudip},
-            { name: 'Sean Prouty', github: 'a.a', linkedin: 'l.l', image: sean},
+            { name: 'Leah Choi',title:'Team lead/Frontend dev', github: 'a.a', linkedin: 'l.l', image: leah},
+            { name: 'Josh Sohn',title:'Backend dev', github: 'a.a', linkedin: 'l.l', image: josh},
+            { name: 'Sudip Baral',title:'Frontend dev', github: 'https://github.com/pujasudip', linkedin: 'https://www.linkedin.com/in/sudip-baral-5a2a96113/', image: sudip},
+            { name: 'Sean Prouty',title:'Backend dev', github: 'https://github.com/prouty411', linkedin: 'https://www.linkedin.com/in/sean-prouty-129243167/', image: sean},
         ];
-        this.state = {
-            modalClass: 'hideModal'
-        }
     }
 
     clickHandler(link){
-        this.setState({
-            modalClass: this.state.modalClass === 'showModal' ? 'hideModal' : 'showModal'
-        });
-
-        if(link){
-            this.loadWebpage(link);
-        }
-    }
-
-    loadWebpage(link){
-        console.log('hello from about_us:', link);
-        return (<div>
-            <iframe src='https://www.google.com'></iframe>
-        </div>)
+        console.log('link:', link);
     }
 
     render() {
@@ -43,6 +27,7 @@ class AboutUs extends Component {
             return (
                 <Member key={index}
                         name={element.name}
+                        title={element.title}
                         github={element.github}
                         linkedin={element.linkedin}
                         image={element.image}
@@ -50,21 +35,8 @@ class AboutUs extends Component {
             );
         });
         return (
-            <div>
-                <div>
-                    {member}
-                </div>
-                <div className={this.state.modalClass}>
-                   <div className='inner-content-modal'>
-                       <i className='material-icons close' onClick={()=>this.clickHandler()}>close</i>
-                   </div>
-                    <div className='webpage'>
-                        {this.loadWebpage()}
-                    </div>
-                    <div>
-                        <button className='btn btn-small modalBtn center' onClick={()=>this.clickHandler()}>Close</button>
-                    </div>
-                </div>
+            <div className='containerAboutUs'>
+                {member}
             </div>
         )
     }

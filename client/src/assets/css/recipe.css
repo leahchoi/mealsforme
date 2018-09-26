@@ -1,14 +1,27 @@
-/* .container{
-    display: flex;
-    align-content: space-around;
+.contain{
+    background-color: #F5F5F5;
+    margin: 0%;
 }
-.dishPicture{
-    width: 25px;
-    height: 25px;
-    background-color: red;
-} */
+#pictureFrame{
+    padding: 0px;
+    height:auto;
+}
 
-/*  */
+.likeTitle{
+    color: #FF8A80;
+    margin-top: 5px;
+    text-shadow: 0px 0px 0px #000000;
+    font-weight: bold;
+}
+#titleText{
+    color:#7F977C;
+    font-size: 14px;
+    font-weight: bold;
+}
+.resultRow{
+    margin-bottom: 25px;
+    
+}
 
 header {
     display: inline-block;
@@ -54,8 +67,8 @@ header {
     width: 100vw;
     height: 25vh;
     position: relative;
+    margin-top: 4rem;
 }
-/*  */
 
 .pictureContainer {
     height: 90%;
@@ -63,24 +76,24 @@ header {
     max-width: 25vh;
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 30%;
     transform: translate(-50%, -50%);
+    z-index: 1;
 }
 
 .pictureContainer img {
     height: 100%;
     width: 100%;
-    border: 8px solid black;
+    border: 3px solid rgba(0, 0, 0, 0.51);
     border-radius: 50%;
 }
 
 #splittingAnimation {
     position: relative;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    z-index: -1;
 }
 
 @keyframes splittingLines {
@@ -93,10 +106,10 @@ header {
 }
 
 #splittingAnimation>div {
-    height: 8px;
+    height: 3px;
     width: 50%;
     float: left;
-    background-color: black;
+    background-color: #0d8000;
     animation-name: splittingLines;
     animation-duration: 2s;
 }
@@ -106,20 +119,22 @@ header {
 }
 
 .dishDetails {
-    height: 10vh;
     width: 100vw;
 }
 
 .dishDetails h1 {
     text-align: center;
     font-size: 5vmax;
-    margin: 0;
+    margin: -30px 0;
 }
 
 .dishDetails h3 {
     text-align: center;
-    font-size: 3vmax;
-    margin: 0;
+    font-size: 1.5rem;
+}
+
+.dishDetails > p{
+    margin: -3px 0;
 }
 
 .ingredients,
@@ -133,19 +148,25 @@ header {
     font-weight: bold;
 }
 
+.ingredients>ol>ul{
+    color: pink;
+}
+
 ol {
-    counter-reset: indexForLi;
+    padding: 2px;
+
+}
+ul {
+    padding-left: 40px !important;
+}
+
+ul li {
+    list-style-type: disc !important;
 }
 
 ol li {
     display: block;
-}
 
-ol li:before {
-    content: counter(indexForLi) ") ";
-    counter-increment: indexForLi;
-    font-weight: bold;
-    font-size: 150%;
 }
 
 ol>li {
@@ -154,14 +175,25 @@ ol>li {
 }
 
 .heartPic {
+
+    bottom: 73%;
+    left: 3%;
+    display: inline-block;
     position: absolute;
-    top: 55%;
-    left: 10%;
-    font-size: 10vmax;
-    color: white;
-    -webkit-text-stroke: 4px red;
 }
 
+.heartPic > img {
+    width: 14vw;
+    top: 15px;
+    left: -16px;
+}
+
+.heartPic>p {
+    margin: 0;
+    top: 49px;
+    left: -29px;
+    font-size: x-small;
+}
 @media only screen and (min-width: 1000px) {
     body {
         margin: 0 8%;
@@ -185,19 +217,176 @@ ol>li {
     .directions>ol {
         font-size: 2.5vmax;
     }
-    ol li:before {
-        font-size: 125%
-    }
     .heartPic {
         font-size: 10vmin;
     }
     #menuButton {
         max-width: 55px;
     }
-    #mainContent {
-        height: 35vh;
-    }
     .pictureContainer {
         max-width: 25vw;
+        z-index: -1;
     }
+}
+.tabs{
+    margin-top: 25px;
+}
+.tab{
+    border: 1px solid #ffb74d;
+    height: 50px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.tab:hover{
+    background-color: #ffcc80;
+    color: white;
+    border: none;
+}
+
+.wine_pairing_slider{
+    position: absolute;
+    top: 56%;
+    right: 0;
+    width: 38px;
+    height: 104px;
+    border-radius: 20px 0 0 20px;
+    background-color: #ffe0b2;
+    transition: height 100ms, width 1000ms;
+}
+
+.wine_pairing_slider:hover{
+    right: 0;
+    width: 150px;
+    height: 200px;
+    background-color: #ff8a65;
+    transition: height 1000ms, width 100ms;
+}
+.wine_pairing_body{
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 70px;
+    height: 200px;
+}
+.wineNavLeft{
+    margin-left: -5px;
+}
+.wineNavLeft:hover{
+    animation: rightTurn 1s;
+    transform: rotate(-180deg);
+}
+@keyframes rightTurn {
+    0%{
+        transform: rotate(-90deg);
+    }
+    100%{
+        transform: rotate(-180deg);
+    }
+
+}
+.wineheader{
+    white-space: nowrap;
+    margin: 0 -35px;
+    transform: rotate(-90deg);
+    color: #B71C1C;
+}
+.winelist{
+    margin-left: 20px;
+}
+.hideToast{
+    display: none;
+}
+.favToastAdd{
+    position: fixed;
+    width: 250px;
+    height: 55px;
+    border-radius: 10px;
+    background-color: rgba(3, 194, 45, 0.69);
+    z-index: 100;
+    text-align: center;
+    top: 50%;
+    left: 20%;
+}
+.message{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    position: relative;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    text-shadow: 1px 1px 1px black;
+
+}
+.favToastRem{
+    position: fixed;
+    width: 300px;
+    height: 55px;
+    border-radius: 10px;
+    background-color: #7F977C;
+    z-index: 100;
+    text-align: center;
+    top: 50%;
+    left: 15%;
+}
+.showModal{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(163, 163, 163, 0.32);
+    z-index: 1001;
+}
+
+.inner-content-modal{
+    position: absolute;
+    width: 80vw;
+    height: 40vh;
+    top: 30%;
+    left: 10%;
+}
+
+.close{
+    border: 2px solid white;
+    border-radius: 50px;
+    position: relative;
+    top: 17px;
+    left: -10px;
+    background-color: #7F977C;
+    cursor: pointer;
+}
+
+.modalBtn{
+    position: fixed;
+    bottom: 32%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.modalBtn:hover{
+    border-radius: 3px;
+    color: #fdff02;
+    box-shadow: 0 0 4px 4px rgba(113, 236, 5, 0.54);
+}
+
+.hideModal{
+    display: none;
+}
+.imageContainer > img{
+    width: 100%;
+}
+.hideWineSlider{
+    display: none;
+}
+.ingredientList{
+    height: 20vh;
+    overflow-y: hidden;
+}
+.showall{
+    height: 100%;
+}
+.activeTab{
+    background-color: #ffcc80;
 }

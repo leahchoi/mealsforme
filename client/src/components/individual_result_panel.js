@@ -4,18 +4,20 @@ import { Link } from 'react-router-dom';
 function OneResult(props){
     let style = {
         'width': '120px',
-        'border': '1px solid green',
+        'border': '2px solid #7F977C'
     };
 
+    const {id, imageSrc, title, likes} = props;
+
     return (
-        <Link to='/recipe'>
-            <div className='card-panel'>
-                <div className="row" key={props.id}>
-                    <div className="col s6">
-                        <img src={props.imageSrc} style={style}/>
+        <Link to={`/recipe/${id}`}>
+            <div className=''>
+                <div className="row resultRow" key={id}>
+                    <div className="col s5 " id="pictureFrame">
+                        <img src={imageSrc} style={style}/>
                     </div>
-                    <div className="col s4">{props.title}</div>
-                    <div className="col s2">{props.likes}</div>
+                    <div className="col s6"id="titleText">{title}</div>
+                    <div className="col s6 likeTitle">Likes: {likes}</div>
                 </div>
             </div>
         </Link>

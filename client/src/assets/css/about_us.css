@@ -3,56 +3,16 @@
     justify-content: space-between;
 }
 
-.memberPicture {
-    border-radius: 50%;
-    background-color: red;
-    width: 30vw;
-    height: 20vh;
-    margin: 0 35px;
-}
 
 .memberInfo {
     display: inline-block;
 }
-.showModal{
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(163, 163, 163, 0.32);
+
+.memberIndividual{
+    height: 22vh;
+    text-align: center;
 }
 
-.inner-content-modal{
-    position: absolute;
-    width: 80vw;
-    height: 90vh;
-    top: 5vh;
-    left: 10vw;
-    background-color: red;
-}
-
-.close{
-    border: 2px solid white;
-    border-radius: 50px;
-    position: relative;
-    top: -10px;
-    left: -10px;
-    background-color: #00d3ff;
-    cursor: pointer;
-}
-
-.modalBtn{
-    position: fixed;
-    bottom: 8%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.hideModal{
-    display: none;
-}
-.webpage{
-
+.containerAboutUs{
+    background-color: rgba(141, 140, 128, 0.36);
 }
