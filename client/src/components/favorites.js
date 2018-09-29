@@ -20,7 +20,6 @@ class Favorites extends Component {
     }
 
     handleDeleteFav = (user_id, recipe_id) => {
-        console.log('delete:', recipe_id);
         this.props.deleteFromFavorite(user_id, recipe_id);
     }
 

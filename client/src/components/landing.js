@@ -9,7 +9,7 @@ import bg_image from '../assets/images/mobile-bg.png';
 //import bg_image from '../assets/images/dogbg.jpg';
 import commonIngredientsRef from '../assets/dummy_data/commonIngredientsRef';
 import types from "../actions/types";
-import { userLogin, setPageNo } from '../actions';
+import { userLogin, setPageNo, clearSearchedRecipe } from '../actions';
 import pageReducer from "../reducers/page_no_reducer";
 
 class LandingPage extends Component {
@@ -23,20 +23,21 @@ class LandingPage extends Component {
             commonIngredients: commonIngredientsRef[this.foodIndex].food,
             remainingEntries: this.allowedEntries,
             zoomBackground: '',
-            inputError: ''
+            inputError: '',
+            toastMessage: 'hideToast'
         };
     }
     componentDidMount() {
         this.props.clearUserIngredientInputs();
+        this.props.setPageNo(0);
     }
 //     componentWillUnmount(){
 //         this.props.clearRecipes();
 
 //     }
     componentWillUnmount() {
-        this.props.clearRecipes();
+        this.props.clearSearchedRecipe();
         this.props.setPageNo(0);
-
     }
 
     componentWillReceiveProps(newProp) {
@@ -58,12 +59,31 @@ class LandingPage extends Component {
                 return;
             }
         }
+
+        let itemArray = item.split(',');
+
+        if(itemArray.length === 1){
+            this.props.addIngredient(item);
+        } else if(itemArray.length > 3){
+            this.setState({
+                toastMessage: ''
+            });
+            setTimeout(()=>{
+                this.setState({
+                    currentIngredientInput: '',
+                    toastMessage: 'hideToast'
+                });
+            }, 1000);
+            return;
+        } else {
+            for(let i = 0; i < itemArray.length; i++){
+                this.props.addIngredient(itemArray[i]);
+            }
+        }
         this.setState({
             currentIngredientInput: '',
-            remainingEntries: --this.allowedEntries,
+            remainingEntries: this.allowedEntries - itemArray.length,
         });
-
-        this.props.addIngredient(item);
 
     }
 
@@ -129,13 +149,6 @@ class LandingPage extends Component {
         });
     }
 
-    zoomBackground(){
-        console.log('bg:');
-        this.setState({
-            zoomBackground: 'bgZoom'
-        });
-    }
-
     render() {
 
         const colorArray = ['red accent-1', 'orange accent-1', 'green lighten-3','red lighten-4','amber accent-1'];
@@ -168,20 +181,19 @@ class LandingPage extends Component {
 
                 <div className="main">
                     <div className='text center'>
-                        <h4 className='margin-top-zero'>Enter your Ingredients</h4>
+                        <h4 className='margin-top-zero' style={this.props.ingredients.length === 3 ? { 'display': 'none' } : {}}>Enter your Ingredients</h4>
                     </div>
                     <div className="center">
                         {ingredient}
                     </div>
                     {this.props.ingredients.length < 3 ?
-                        <div className='search_field'>
-                            <div className="">
+                        <div className='search_field center-block'>
+                            <div className="center-block">
                                 <input placeholder={this.state.remainingEntries === 3 ?`Insert ${this.state.remainingEntries} Ingredients` : `Insert ${this.state.remainingEntries} more Ingredients`}
-                                       className='center bgZoom' onChange={(event) => this.userInputHandler(event)}
-                                       value={this.state.currentIngredientInput}
-                                       onFocus={()=>this.zoomBackground()}/>
+                                       className='ingInput center' onChange={(event) => this.userInputHandler(event)}
+                                       value={this.state.currentIngredientInput} />
                             </div>
-                            <img id="ingAddMinImg" src={plus} onClick={this.addIngredientToListFromInput.bind(this)} className="center-block" />
+                            <img id="ingAddImg" src={plus} onClick={this.addIngredientToListFromInput.bind(this)} className="center-block" />
                         </div>
                         :
                         <div className='center green-text'><h5>Go for the food</h5></div>
@@ -226,6 +238,9 @@ class LandingPage extends Component {
                 </div>
                 <div>
                 </div>
+                <div className={`ingredientInputError ${this.state.toastMessage}`}>
+                    <h5>Enter only three ingredients.</h5>
+                </div>
             </div>
         );
     }
@@ -243,8 +258,8 @@ const mapActionsToProps = {
     addIngredient: addIngredeints,
     removeIngredient: removeIngredients,
     clearUserIngredientInputs: clearUserIngredientInputs,
-    clearRecipes: clearRecipes,
-    setPageNo: setPageNo
+    setPageNo: setPageNo,
+    clearSearchedRecipe: clearSearchedRecipe
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(LandingPage);

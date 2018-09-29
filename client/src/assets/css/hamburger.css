@@ -7,9 +7,12 @@
     cursor: pointer;
     animation: bounce 1s;
 }
-
+.home{
+    margin-left: 10%;
+}
 .menu{
     height: 29vh;
+    box-shadow: 0 0 2px 5px rgba(127, 202, 115, 0.6);
 }
 @keyframes bounce {
     from,
@@ -97,4 +100,10 @@
         -webkit-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
     }
+}
+.greetFont{
+    font-family: "Apple Chancery";
+}
+.hamMenuGreetingName {
+    text-transform: capitalize;
 }

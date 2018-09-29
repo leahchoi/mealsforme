@@ -4,7 +4,7 @@ import axios from 'axios';
 import OneResult from './individual_result_panel';
 import { connect } from 'react-redux';
 import { formatPostData, formatQueryString } from '../helpers';
-import { searchedRecipe, setDetailsOfItem, setDetailsId, setPageNo } from '../actions';
+import { searchedRecipe, setDetailsOfItem, setDetailsId, setPageNo, setInvalidSearch } from '../actions';
 import backButton from '../assets/images/back_arrow.png';
 import '../../node_modules/font-awesome/css/font-awesome.min.css';
 const BASE_URL = 'http://localhost:8000/server/getData.php';
@@ -20,7 +20,6 @@ class Results extends Component {
 
     componentDidMount() {
         let pageNo = this.props.page.page;
-        console.log('pageNo:', pageNo);
         this.props.searchedRecipe(this.props.userInputs, pageNo);
         this.props.setPageNo(pageNo);
         window.addEventListener('scroll', this.handleOnScroll);
@@ -28,6 +27,8 @@ class Results extends Component {
 
     componentWillUnmount() {
         window.removeEventListener('scroll', this.handleOnScroll);
+        console.log('unmounting');
+        this.props.setInvalidSearch();
     }
 
     goBack() {
@@ -38,10 +39,8 @@ class Results extends Component {
         let scrollHeight = (document.documentElement && document.documentElement.scrollHeight) || document.body.scrollHeight;
         let clientHeight = document.documentElement.clientHeight + 1 || window.innerHeight + 1; // changed client height to + 1
         let scrolledToBottom = (parseInt(scrollTop + clientHeight)) >= scrollHeight;
-        console.log('log:', scrolledToBottom);
         if (scrolledToBottom) {
             let pageNo = this.props.page.page;
-            console.log('pageNo:', pageNo);
             this.props.searchedRecipe(this.props.userInputs, pageNo);
             this.props.setPageNo(pageNo);
             scrolledToBottom = false;
@@ -49,16 +48,23 @@ class Results extends Component {
     }
     render() {
         const { searchedIngredients } = this.props;
-        console.log('page:', this.props.page.page);
         let resultArray = '';
         if(!this.props.userInputs.length){
             return <div className='goback'>
-                <h5>No Search Available</h5>
-                <button onClick={this.goBack.bind(this)} className='backBtn'>
+                <h5 className="invalid_null-search">No Search Available</h5>
+                <button onClick={this.goBack.bind(this)} className='backBtn center-block'>
                     <img src={backButton} className='btn btn-small' />
                 </button>
-                Go Back
                 </div>
+        } else if(this.props.searched_recipe_null){
+            var userInputs = this.props.userInputs.join(", ");
+            return (<div className='goback'>
+                <h6 className="center-align">You searched for: <b>{userInputs}</b></h6>
+                <h5 className="invalid_null-search">Invalid Search</h5>
+                <button onClick={this.goBack.bind(this)} className='backBtn center-block'>
+                    <img src={backButton} className='btn btn-small' />
+                </button>
+            </div>)
         }
         //When loading,
         if (searchedIngredients.length <= 0) {
@@ -94,8 +100,9 @@ function mapStateToProps(state){
     return {
         userInputs: state.search.ingredients,
         searchedIngredients: state.search.searched_recipe,
+        searched_recipe_null: state.search.searched_recipe_null,
         page: state.page
     }
 }
 
-export default connect(mapStateToProps, { searchedRecipe , setDetailsOfItem , setDetailsId, setPageNo })(Results);
+export default connect(mapStateToProps, { searchedRecipe , setDetailsOfItem , setDetailsId, setPageNo, setInvalidSearch })(Results);

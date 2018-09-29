@@ -27,7 +27,7 @@ class HamburgerMenu extends Component{
                     <i className='material-icons closeIcon'
                        onClick={this.props.hideMenu}>close</i>
                 </div>
-                { success ? <div>Hello, {username}</div> : '' }
+                { success ? <div className="greetFont"><i className="material-icons prefix">portrait</i> Hello, <span className="hamMenuGreetingName greetFont">{username}</span></div> : '' }
                 <i className='material-icons prefix'>home</i>
                 <Link to='/'
                       onClick={this.props.hideMenu} className='menuItem'>&nbsp;Home</Link><br/>

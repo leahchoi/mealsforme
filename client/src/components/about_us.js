@@ -11,15 +11,11 @@ class AboutUs extends Component {
     constructor(props) {
         super(props);
         this.members = [
-            { name: 'Leah Choi',title:'Team lead/Frontend dev', github: 'a.a', linkedin: 'l.l', image: leah},
-            { name: 'Josh Sohn',title:'Backend dev', github: 'a.a', linkedin: 'l.l', image: josh},
-            { name: 'Sudip Baral',title:'Frontend dev', github: 'https://github.com/pujasudip', linkedin: 'https://www.linkedin.com/in/sudip-baral-5a2a96113/', image: sudip},
-            { name: 'Sean Prouty',title:'Backend dev', github: 'https://github.com/prouty411', linkedin: 'https://www.linkedin.com/in/sean-prouty-129243167/', image: sean},
+            { name: 'Leah Choi',title:'Team lead / Frontend developer', github: 'https://github.com/leahchoi', linkedin: 'https://www.linkedin.com/in/soorachoi/', portfolio: 'https://soorachoi.com/', image: leah},
+            { name: 'Josh Sohn',title:'Backend developer', github: 'https://github.com/sohnOfGod', linkedin: 'https://www.linkedin.com/in/joshsohn93/', portfolio: 'https://joshsohn.co/', image: josh},
+            { name: 'Sudip Baral',title:'Frontend developer', github: 'https://github.com/pujasudip', linkedin: 'https://www.linkedin.com/in/sudip-baral-5a2a96113/', portfolio: 'https://codingbaral.com', image: sudip},
+            { name: 'Sean Prouty',title:'Backend developer', github: 'https://github.com/prouty411', linkedin: 'https://www.linkedin.com/in/sean-prouty-129243167/', portfolio: 'https://sean-prouty.com/', image: sean},
         ];
-    }
-
-    clickHandler(link){
-        console.log('link:', link);
     }
 
     render() {
@@ -30,8 +26,8 @@ class AboutUs extends Component {
                         title={element.title}
                         github={element.github}
                         linkedin={element.linkedin}
-                        image={element.image}
-                        clicked={this.clickHandler.bind(this)}/>
+                        portfolio={element.portfolio}
+                        image={element.image} />
             );
         });
         return (

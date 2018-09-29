@@ -1,7 +1,7 @@
 import types from '../actions/types';
 
 const DEFAULT_STATE = {
-    favorites: []
+    favorites: [],
 };
 
 export default function favorites(state=DEFAULT_STATE, action){
@@ -12,8 +12,8 @@ export default function favorites(state=DEFAULT_STATE, action){
             let recipe_id = action.payload;
             let newList = [...state.favorites];
             let tobeDeletedIndex = '';
-            for(var i = 0; i < newList; i++){
-                if(newList[i].recipe_id === recipe_id){
+            for(var i = 0; i < newList.length; i++){
+                if(newList[i].recipe_id == recipe_id){
                     tobeDeletedIndex = i;
                 }
             }

@@ -390,3 +390,6 @@ ol>li {
 .activeTab{
     background-color: #ffcc80;
 }
+.hideWine{
+    display: none;
+}

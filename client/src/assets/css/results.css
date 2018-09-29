@@ -21,6 +21,7 @@
 }
 .goback{
     display: block;
+    width: 150%;
 }
 .loading-spinner > *{
     font-size: 6rem;
@@ -48,4 +49,7 @@ h5{
 }
 .hideGoToTop{
     display: none;
+}
+.invalid_null-search{
+    text-align: center;
 }

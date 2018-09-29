@@ -2,7 +2,7 @@ import types from './types';
 import { formatPostData, formatQueryString } from '../helpers';
 import axios from 'axios';
 const BASE_URL = '/api/userauth/login.php';
-const BASE_URL_SEARCH = 'https://mealsforme.app/api/server/getData.php'//http://localhost:8000/api/server/getData.php';//'/api/server/getData.php';
+const BASE_URL_SEARCH = '/api/server/getData.php'//http://localhost:8000/api/server/getData.php';//'/api/server/getData.php';
 const BASE_URL_SIGNUP = '/api/userauth/createuser.php';
 const BASE_URL_RECIPE_SEARCH = '/api/server/getRecipe.php';
 const FAV_URL_ADD = '/api/server/addFavorites.php';
@@ -15,6 +15,12 @@ export function searchedRecipe(userIngredient, page){
     return {
         type: types.SEARCHED_RECIPE,
         payload: resp
+    }
+}
+
+export function clearSearchedRecipe(){
+    return {
+        type: types.CLEAR_SEARCHED_RECIPE,
     }
 }
 
@@ -81,13 +87,6 @@ export function removeFromShoppingList(item){
     }
 }
 
-export function clearRecipes(){
-    return {
-        type: types.CLEAR_RECIPES,
-        payload: ''
-    }
-}
-
 export function createUserAccount(values){
     const { firstName, lastName, username, email, password} = values;
     const dataToSend = formatPostData({firstName, lastName, username, email, password});
@@ -123,7 +122,7 @@ export function deleteFromFavorite(user_id, recipe_id){
     // const favResp = axios.get(FAV_URL_GET, getFavData);
     return {
         type: types.DELETE_FROM_FAVORITE,
-        payload: deleteResponse
+        payload: recipe_id
     }
 }
 
@@ -142,6 +141,13 @@ export function setPageNo(page){
     return {
         type: types.SET_PAGE_NO,
         payload: page
+    }
+}
+
+export function setInvalidSearch(){
+    return {
+        type: types.INVALID_SEARCH,
+        payload: false
     }
 }
 
