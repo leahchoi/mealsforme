@@ -49,7 +49,7 @@ class Header extends Component {
     }
     displayBackBtn(){
         return (
-            <div onClick={this.goBack.bind(this)} className="btn btn-large backArrow">
+            <div onClick={this.goBack.bind(this)} className="btn btn-small backArrow">
                 <i className="material-icons medium" >arrow_back</i>
             </div>
         )
@@ -88,9 +88,9 @@ class Header extends Component {
         return (
             <div className='header'>
                 {this.displayHeaderButton(success, username)}
-                <div>
+                <div className="logo center-align">
                     <Link to='/'>
-                        <img src={logo} className="logo"/>
+                        <img src={logo}/>
                     </Link>
                 </div>
                 <div>

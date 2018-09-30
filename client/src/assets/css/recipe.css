@@ -1,6 +1,5 @@
 .contain{
     background-color: #F5F5F5;
-    margin: 0%;
 }
 #pictureFrame{
     padding: 0px;
@@ -22,38 +21,6 @@
     margin-bottom: 25px;
     
 }
-
-header {
-    display: inline-block;
-    height: 10vh;
-    width: 100vw;
-    border-bottom: 8px solid black;
-    position: relative;
-}
-
-#backArrow {
-    display: inline-block;
-    height: 100%;
-    width: auto;
-}
-
-#logo {
-    display: inline-block;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    height: 100%;
-    width: auto;
-    border-radius: 50%;
-    border: 8px solid black;
-}
-
-#logo img {
-    height: 100%;
-    width: auto;
-}
-
 #menuButton {
     height: 75%;
     width: 10%;
@@ -67,7 +34,7 @@ header {
     width: 100vw;
     height: 25vh;
     position: relative;
-    margin-top: 4rem;
+    margin-top: 16vh;
 }
 
 .pictureContainer {

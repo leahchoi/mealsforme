@@ -9,6 +9,8 @@ const BASE_URL_RECIPE_SEARCH = '/api/server/getRecipe.php';
 const FAV_URL_ADD = '/api/server/addFavorites.php';
 const FAV_URL_GET = '/api/server/getFavorites.php';
 const FAV_URL_DEL = '/api/server/deleteFavorite.php';
+//tempoary url
+const SHOPPING_LIST_URL = 'http://localhost:8000/api/server/shoppinglist.php';
 
 export function searchedRecipe(userIngredient, page){
     var dataToSend = formatQueryString(userIngredient, page);
@@ -75,9 +77,11 @@ export function getDetailsById(id){
 
 
 export function addToShoppingList(item) {
+    var dataToSend = formatPostData({item: item});
+    const response = axios.post(SHOPPING_LIST_URL, dataToSend);
     return {
         type: types.ADD_TO_SHOPPINGLIST,
-        payload: item
+        payload: response
     }
 }
 

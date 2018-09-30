@@ -80,13 +80,13 @@ class Results extends Component {
             });
         }
         return (
-            <div className= 'main-content mainPage'>
-                <h5 className='resultHeader'>Results for: {this.props.userInputs.join(", ")}</h5>
-            <div className= 'main-content'>
-                    {
-                        resultArray
-                    }      
-            </div>
+            <div>
+                <div className= 'result-content'>
+                    <h5 className='resultHeader'>Results for: {this.props.userInputs.join(", ")}</h5>
+                        {
+                            resultArray
+                        }
+                </div>
                 <div className={`btn btn-floating red ${document.documentElement.scrollTop > 0 ? 'goToTop' : 'hideGoToTop'}`}
                      onClick={()=> window.scrollTo(0, 0)}>
                     <i className='material-icons'>keyboard_arrow_up</i>
