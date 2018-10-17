@@ -9,6 +9,9 @@ import axios from 'axios';
 // const FAV_URL_ADD = '/api/server/addFavorites.php';
 // const FAV_URL_GET = '/api/server/getFavorites.php';
 // const FAV_URL_DEL = '/api/server/deleteFavorite.php';
+// const ADD_TO_SHOPPINGLIST = '/api/server/shoppingList.php';
+// const DEL_FROM_SHOPPINGLIST = '/api/server/del_shoppingList.php';
+// const STATUS_SHOPPINGLIST = '/api/server/shoppingStatus.php';
 
 const BASE_URL = 'http://localhost:8000/userauth/login.php';
 const BASE_URL_SEARCH = 'http://localhost:8000/server/getData.php';
