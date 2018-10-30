@@ -44,7 +44,7 @@ if($_POST){
 
     if(mysqli_num_rows($result)>0){
         $output['success'] = false;
-        $output['mesage'] = 'item already exits in the list';
+        $output['message'] = 'item already exits in the list';
         $output = json_encode($output);
         print($output);
         exit();
