@@ -110,9 +110,9 @@ class Results extends Component {
             return (<div className='goback'>
                 <h6 className="center-align">You searched for: <b>{userInputs}</b></h6>
                 <h5 className="invalid_null-search">No recipe found.</h5>
-                <button onClick={this.goBack.bind(this)} className='backBtn center-block'>
+                <div onClick={this.goBack.bind(this)} className='backBtn'>
                     <img src={backButton} className='btn btn-small' />
-                </button>
+                </div>
             </div>)
         }
         //When loading,

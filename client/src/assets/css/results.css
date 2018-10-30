@@ -82,3 +82,8 @@ h5{
     left: 50%;
     transform: translateX(-50%);
 }
+.backBtn{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}

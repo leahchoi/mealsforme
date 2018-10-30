@@ -30,7 +30,7 @@
         display: inline-block;
         width: 70px;
         height: 70px;
-        border-radius: 50%;
+        border-radius: 20%;
         background-color: rgba(255, 254, 208, 0.51);
         background-image: url("../images/ourlogo.png");
         background-position: center;
@@ -54,8 +54,9 @@
     .noFavInList > p{
         text-align: center;
         width: 100%;
-        font-size: 2rem;
+        font-size: 1.8rem;
         font-weight: bold;
+        margin-top: 110px;
     }
     .main{
         position: absolute;
@@ -71,6 +72,9 @@
     }
     .search_field input{
         width: 40vw !important;
+    }
+    .userActivity{
+        margin-top: 70px;
     }
 }
 @media only screen and ( max-width: 550px) {
