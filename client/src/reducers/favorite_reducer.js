@@ -6,7 +6,7 @@ const DEFAULT_STATE = {
 
 export default function favorites(state=DEFAULT_STATE, action){
     if(action.error){
-        return {state};
+        return state;
     }
     switch(action.type){
         case types.ADD_TO_FAVORITE:

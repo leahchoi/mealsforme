@@ -224,7 +224,7 @@ ol>li {
     left: 2vw;
     display: inline-block;
     position: absolute;
-    z-index: 1000;
+    z-index: 500;
     cursor: pointer;
 }
 
@@ -382,6 +382,7 @@ ol>li {
     margin: 0 -35px;
     transform: rotate(-90deg);
     color: #B71C1C;
+    font-size: 15px;
 }
 .hideToast{
     display: none;

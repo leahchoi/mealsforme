@@ -8,8 +8,6 @@
     font-family: 'Lato',
         'Arial',
         sans-serif;
-    font-size: 20px;
-    font-weight: 300;
     text-rendering: optimizeLegibility;
 }
 
@@ -60,7 +58,7 @@
 }
 
 .landPgSearchBtn {
-    width: 20vw;
+    width: 30vw;
     background-color: #576a54;
     text-shadow: 1px 1px 1px #000000;
     border: 1px solid darkgreen;
@@ -93,10 +91,10 @@ button {
     display: inline;
 }
 
-.ingredientBtns button:hover {
-    box-shadow: 0 0 5px 2px #283127;
-    color: #767676;
-}
+/*.ingredientBtns button:hover {*/
+    /*box-shadow: 0 0 5px 2px #283127;*/
+    /*color: #767676;*/
+/*}*/
 
 .directionLeft:hover {
     text-shadow: 0 0 7px #0088ff;
@@ -245,13 +243,9 @@ input::placeholder {
 .inputFieldHeader {
     color: white;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.99);
-    font-size: 240%;
-    font-weight: 300;
+    font-size: 200%;
     text-transform: uppercase;
-    word-spacing: 4px;
-    letter-spacing: 1px;
 }
-
 .nothingEnteredIsFalse {
     display: none;
 }
@@ -324,7 +318,6 @@ input::placeholder {
     }
 }
 .userActivity{
-    margin-top: 70px;
     background-color: rgba(255, 250, 240, 0.50);
     width: 70vw;
     padding: 20px;
@@ -334,6 +327,13 @@ input::placeholder {
     background-color: #91c29b;
     color: #000000;
     font-weight: bold;
+}
+.chip > .valign-wrapper{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 20vw;
+    color: red;
 }
 
 /* .directionRight{

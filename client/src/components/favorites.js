@@ -37,7 +37,7 @@ class Favorites extends Component {
         return (
             <div className="favWholeContainer">
                 <div className="favContainer">
-                    { favList.length === 0 ? <div className="noFavInList"><p>No favorite to display.</p><div className="noFavInListImg"></div></div> : favList}
+                    { favList.length === 0 ? <div className="noFavInList"><p>Nothing here yet, add a recipe to your favorites to remember it for later.</p><div className="noFavInListImg"></div></div> : favList}
                 </div>
             </div>
         )

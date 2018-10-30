@@ -192,13 +192,6 @@ class Recipe extends Component {
         });
         this.timer = 10;
     }
-
-    footerShowDelay(){
-        setTimeout(()=>{
-
-        })
-    }
-
     render() {
         let directions = '';
         let ingredients = '';

@@ -80,7 +80,7 @@ class ShoppingToDo extends Component{
                         Operations
                     </div>
                     <ul>
-                        {shoppingList.length === 0 ? <div className="nothingToShopHeader"><p>Nothing to shop.</p><div className="nothingToShopImg"></div></div> : shoppingList}
+                        {shoppingList.length === 0 ? <div className="nothingToShopHeader"><p>Nothing is in the list. You can add items here from the recipe page to shop for later.</p><div className="nothingToShopImg"></div></div> : shoppingList}
                     </ul>
                 </div>
             </div>

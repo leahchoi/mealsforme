@@ -205,7 +205,7 @@ class LandingPage extends Component {
                 <div className="main">
                     <div className="userActivity center-block">
                         <div className='text center'>
-                            <h4 className='margin-top-zero inputFieldHeader' style={this.props.ingredients.length === 3 ? { 'display': 'none' } : {}}>Enter your Ingredients</h4>
+                            <h5 className='margin-top-zero inputFieldHeader' style={this.props.ingredients.length === 3 ? { 'display': 'none' } : {}}>Enter your Ingredients</h5>
                         </div>
                         <div className="center">
                             {ingredient}
