@@ -6,7 +6,7 @@ import Directions from './directions';
 import Ingredients from './ingredients';
 import ShoppingList from './shopping_list';
 import { connect } from 'react-redux';
-import { getDetailsById, addToShoppingList, addToFavorite, getFavorites, deleteFromFavorite, setShoppingList, getShoppingList, resetResultsPage } from '../actions';
+import { getDetailsById, addToShoppingList, addToFavorite, getFavorites, deleteFromFavorite, setShoppingList, getShoppingList, resetResultsPage, deleteFromShoppingListServer } from '../actions';
 import wine_up from '../assets/images/wine_up.png';
 
 class Recipe extends Component {
@@ -27,7 +27,7 @@ class Recipe extends Component {
             hideExpandButton: '',
             lessThan500px: 'false',
             moreThan500px: 'false',
-            done: 'false'
+            // done: 'false'
         };
         this.userId = '';
         this.success = '';
@@ -35,6 +35,7 @@ class Recipe extends Component {
         this.cancelInterval = null;
         this.timer = 10;
         this.heartChanged = false;
+        this.done = false;
     }
 
     componentWillMount(){
@@ -66,7 +67,7 @@ class Recipe extends Component {
                 }
             }
         }
-        window.addEventListener('resize', this.informWindowResize);
+        // window.addEventListener('resize', this.informWindowResize);
     }
 
     componentDidUpdate(){
@@ -88,7 +89,7 @@ class Recipe extends Component {
 
     componentWillUnmount(){
         this.props.resetResultsPage();
-        window.removeEventListener('resize', this.informWindowResize);
+        // window.removeEventListener('resize', this.informWindowResize);
     }
 
     informWindowResize = () => {
@@ -114,8 +115,6 @@ class Recipe extends Component {
                     hideExpandButton: 'hideExpandButton',
                 });
             }
-
-            console.log('lessThan500px:', this.state.lessThan500px);
         }
         if(window.innerWidth > 500 && this.state.moreThan500px === 'false'){
             this.setState({
@@ -131,6 +130,7 @@ class Recipe extends Component {
             let clientHeight =  overflowedIngredientList.clientHeight;
             let scrollHeight = overflowedIngredientList.scrollHeight;
 
+            debugger;
             if((scrollHeight < clientHeight)){
                 this.setState({
                     hideExpandButton: '',
@@ -140,7 +140,6 @@ class Recipe extends Component {
                     hideExpandButton: 'hideExpandButton',
                 });
             }
-            console.log('moreThan500px:', this.state.moreThan500px);
         }
     }
     handleWindowResize(){
@@ -151,11 +150,11 @@ class Recipe extends Component {
         let clientHeight =  overflowedIngredientList.clientHeight;
         let scrollHeight = overflowedIngredientList.scrollHeight;
 
-        if((scrollHeight <= clientHeight) && this.state.done === 'false'){
+        if((scrollHeight <= clientHeight) && !this.done){
             this.setState({
                 hideExpandButton: 'hideExpandButton',
-                done: 'true'
             });
+            this.done = true;
         }
     }
 
@@ -251,12 +250,15 @@ class Recipe extends Component {
         let qty = amount + ' ' + unitShort;
 
         if(this.userId !== ''){
-            this.props.setShoppingList(this.userId, recipe_id, item.name, qty)
+            this.props.setShoppingList(this.userId, recipe_id, item.name, qty);
         } else {
             this.props.addToShoppingList(item.name);
         }
+    }
 
-
+    deleteFromShoppingList(ele){
+        console.log('ele:', this.stagedToBeDeleted);
+        // this.props.deleteFromShoppingListServer(this.userId, ele.id, ele.name, this.stagedToBeDeleted);
     }
 
     clickHandler(){
@@ -318,6 +320,8 @@ class Recipe extends Component {
 
         if(ingredients){
             ingredientList = ingredients.map((ele, index)=>{
+                let alreadyAdded = false;
+                let toggleFunction = '';
                 let addOrRemove = 'add_circle';
                 let ingListAdded = '';
                 let iconColor = 'brown-text';
@@ -334,6 +338,7 @@ class Recipe extends Component {
                 if(this.userId !== '' && this.props.shoppingList){
                     for(let item of this.props.shoppingList){
                         if(item.items === ele.name){
+                            alreadyAdded = true;
                             addOrRemove = 'check_circle';
                             ingListAdded = 'ingListAdded badge';
                             iconColor = 'green-text';
@@ -341,7 +346,15 @@ class Recipe extends Component {
                         }
                     }
                 }
+
                 return <div key={index} onClick={this.addToShopingList.bind(this, ele)} className={`ingList ${ingListAdded}`} title={title}><i className={`material-icons ${iconColor}`}>{addOrRemove}</i>{ele.measures.us.amount} {ele.measures.us.unitShort} {ele.name}</div>
+                // { alreadyAdded ?
+                //     toggleFunction = <div key={index} onClick={()=>this.deleteFromShoppingList(ele)} className={`ingList ${ingListAdded}`} title={title}><i className={`material-icons ${iconColor}`}>{addOrRemove}</i>{ele.measures.us.amount} {ele.measures.us.unitShort} {ele.name}</div>
+                //     :
+                //     toggleFunction = <div key={index} onClick={this.addToShopingList.bind(this, ele)} className={`ingList ${ingListAdded}`} title={title}><i className={`material-icons ${iconColor}`}>{addOrRemove}</i>{ele.measures.us.amount} {ele.measures.us.unitShort} {ele.name}</div>
+                // }
+                //
+                // return toggleFunction;
             });
         }
         if(pairedWines){
@@ -456,6 +469,6 @@ function mapStateToProps(state){
 }
 
 
-export default connect(mapStateToProps, {getDetailsById, addToShoppingList, addToFavorite, getFavorites, deleteFromFavorite, setShoppingList, getShoppingList, resetResultsPage})(Recipe);
+export default connect(mapStateToProps, {getDetailsById, addToShoppingList, addToFavorite, getFavorites, deleteFromFavorite, setShoppingList, getShoppingList, resetResultsPage, deleteFromShoppingListServer})(Recipe);
 
 

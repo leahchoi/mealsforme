@@ -28,9 +28,6 @@ class SignUp extends Component{
         if(resp){
             userSignedUp =  resp.success;
         }
-
-        console.log('resp:', userSignedUp);
-
         const {handleSubmit} = this.props;
         return (
             userSignedUp ? `${this.props.history.push('/login')}`

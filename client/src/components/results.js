@@ -32,9 +32,6 @@ class Results extends Component {
             }
         }
 
-        console.log('a:', this.props.match.url);
-
-
         this.setState({
             query: this.dataToSend
         });
@@ -76,7 +73,6 @@ class Results extends Component {
 
         if(scrolled && !this.callInProgress){
             let pageNo = this.props.page.page;
-            console.log('page:', pageNo);
             // if(!this.callInProgress){
                 this.callInProgress = true;
                 this.props.searchedRecipe(this.dataToSend, pageNo).then(()=>{
