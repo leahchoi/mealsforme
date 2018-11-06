@@ -67,7 +67,7 @@ class Recipe extends Component {
                 }
             }
         }
-        // window.addEventListener('resize', this.informWindowResize);
+        window.addEventListener('resize', this.informWindowResize);
     }
 
     componentDidUpdate(){
@@ -89,7 +89,7 @@ class Recipe extends Component {
 
     componentWillUnmount(){
         this.props.resetResultsPage();
-        // window.removeEventListener('resize', this.informWindowResize);
+        window.removeEventListener('resize', this.informWindowResize);
     }
 
     informWindowResize = () => {
