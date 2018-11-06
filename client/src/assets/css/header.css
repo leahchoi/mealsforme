@@ -18,6 +18,7 @@
     transform: translateX(-50%);
     height: 90%;
     width: 7vh;
+    min-width: 60px;
 }
 .hamicon{
     width: 60px;
