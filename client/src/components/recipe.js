@@ -97,7 +97,10 @@ class Recipe extends Component {
             this.setState({
                 lessThan500px: 'true',
                 moreThan500px: 'false',
+                showall: 'ingredientList',
             });
+
+            this.done = false;
 
             let overflowedIngredientList = document.getElementById('overflowedOrNot');
             if(!overflowedIngredientList){
@@ -105,6 +108,9 @@ class Recipe extends Component {
             }
             let clientHeight =  overflowedIngredientList.clientHeight;
             let scrollHeight = overflowedIngredientList.scrollHeight;
+
+            console.log('less:', this.state.lessThan500px);
+
 
             if((scrollHeight >= clientHeight)){
                 this.setState({
@@ -120,8 +126,10 @@ class Recipe extends Component {
             this.setState({
                 moreThan500px: 'true',
                 lessThan500px: 'false',
-                done: 'false'
+                showall: 'ingredientList',
             });
+
+            this.done = false;
 
             let overflowedIngredientList = document.getElementById('overflowedOrNot');
             if(!overflowedIngredientList){
@@ -130,7 +138,6 @@ class Recipe extends Component {
             let clientHeight =  overflowedIngredientList.clientHeight;
             let scrollHeight = overflowedIngredientList.scrollHeight;
 
-            debugger;
             if((scrollHeight < clientHeight)){
                 this.setState({
                     hideExpandButton: '',
@@ -140,6 +147,7 @@ class Recipe extends Component {
                     hideExpandButton: 'hideExpandButton',
                 });
             }
+            console.log('more:', this.state.moreThan500px);
         }
     }
     handleWindowResize(){
@@ -154,8 +162,8 @@ class Recipe extends Component {
             this.setState({
                 hideExpandButton: 'hideExpandButton',
             });
-            this.done = true;
         }
+        this.done = true;
     }
 
     changeHeart(){
