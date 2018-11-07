@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component, Fragment} from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/css/hamburger.css';
 import { connect } from 'react-redux';
@@ -6,15 +6,19 @@ import axios from "axios";
 import { userLogout } from '../actions';
 
 class HamburgerMenu extends Component{
-    logOutUser = async () => {
+    constructor(props){
+        super(props);
+    }
+    logOutUser(){
         this.props.hideMenu();
-        console.log('aa:', this.props.userLogout());
-    };
+        this.props.userLogout();
+
+    }
 
     render() {
         let username = '';
         let success = false;
-        if(localStorage.userInfo){
+        if(localStorage.userInfo !== undefined){
             username = (JSON.parse(localStorage.userInfo))['firstname'];
             success = (JSON.parse(localStorage.userInfo))['success']
         } else if(this.props.loginResponse){
@@ -27,7 +31,7 @@ class HamburgerMenu extends Component{
                     <i className='material-icons closeIcon'
                        onClick={this.props.hideMenu}>close</i>
                 </div>
-                { success ? <div>Hello, {username}</div> : '' }
+                { success ? <div className="greetFont"><i className="material-icons prefix">portrait</i> Hello, <span className="hamMenuGreetingName greetFont">{username}</span></div> : '' }
                 <i className='material-icons prefix'>home</i>
                 <Link to='/'
                       onClick={this.props.hideMenu} className='menuItem'>&nbsp;Home</Link><br/>
@@ -37,10 +41,21 @@ class HamburgerMenu extends Component{
                 <i className='material-icons prefix'>group</i>
                 <Link to='/about_us'
                       onClick={this.props.hideMenu} className='menuItem'>&nbsp;About Team</Link><br/>
+                {
+                    success ?
+                        <Fragment>
+                            <i className='material-icons prefix'>format_list_bulleted</i>
+                        <Link to='/shopping-todo'
+                              onClick={this.props.hideMenu} className='menuItem'>&nbsp;Shopping List</Link><br />
+                        </Fragment>
+                        :
+                        ''
+                }
+
                 { success ?
                     <div>
                         <i className='material-icons prefix'>exit_to_app</i>
-                        <Link to='/' onClick={this.logOutUser} className='menuItem'>&nbsp;Log out</Link>
+                        <Link to='/' onClick={()=>this.logOutUser()} className='menuItem'>&nbsp;Log out</Link>
                     </div>
                     :
                     <div>

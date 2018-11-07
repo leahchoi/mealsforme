@@ -7,7 +7,7 @@ if(isset($_POST)){
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $userPassword = mysqli_real_escape_string($conn, $_POST['password']);
     $output = [];
-    $output['success'] = 0;
+    $output['success'] = 'false';
 
 
     //check if inputs are empty
@@ -45,7 +45,7 @@ if(isset($_POST)){
                     $output['firstname'] = $_SESSION['user_firstname'];
 
                     $output = json_encode($output);
-                    print_r($output);
+                    print($output);
                     exit();
 
                 }

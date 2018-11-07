@@ -1,0 +1,166 @@
+@media only screen and (max-device-height: 411px) {
+    .header{
+        height: 50px !important;
+    }
+    .main{
+        transform: scale(.5);
+        background: none !important;
+    }
+    .userActivity{
+        transform: scale(1.4);
+        margin-top: 50px !important;
+    }
+    .desktop_menu > .nav-wrapper{
+        height: 50px !important;
+    }
+    .desktop_logo{
+        height: 50px !important;
+        width: 50px !important;
+    }
+    .desktop_menu a{
+        line-height: 50px;
+    }
+    .hamicon{
+        transform: scale(.8);
+    }
+    .favContainer{
+        margin-top: 55px !important;
+    }
+}
+@media only screen and (device-width: 320px) and (device-height: 480px){
+    .header{
+        height: 50px !important;
+    }
+    .hamicon{
+        transform: scale(.8);
+    }
+    .userActivity{
+        margin-top: -100px !important;
+        transform: scale(.5);
+        width: 450px !important;
+        margin-left: -65px !important;
+    }
+    .main{
+        margin-top: 50px !important;
+    }
+    .menu{
+        width: 200px !important;
+        height: 250px !important;
+    }
+    .search_field{
+        margin-left: 90px !important;
+    }
+    .favContainer{
+        margin-top: 55px !important;
+    }
+    .shopping-todo-container{
+        top: 55px !important;
+    }
+    .containerAboutUs{
+        margin-top: 51px !important;
+        overflow: auto;
+    }
+    .memberIndividual{
+        height: 30vh !important;
+    }
+    .landPgSearchBtn{
+        width: 100px !important;
+    }
+}
+@media only screen and (device-width: 320px) and (device-height: 568px){
+    .userActivity{
+        transform: scale(.8);
+    }
+    .main{
+        margin-top: 30px !important;
+    }
+}
+@media only screen and (device-width: 480px) and (device-height: 320px){
+    .userActivity{
+        margin-top: -100px !important;
+        transform: scale(1.3);
+        width: 450px !important;
+    }
+    .main{
+        /*margin-top: 50px !important;*/
+    }
+    .search_field{
+        margin-left: 50px !important;
+    }
+    .menu{
+        width: 200px !important;
+        height: 250px !important;
+    }
+    .favContainer{
+        margin-top: 55px !important;
+    }
+    .shopping-todo-container{
+        top: 45px !important;
+    }
+    .shopping-todo-container ul{
+         margin-top: 0 !important;
+     }
+    .shopping-todo-container li{
+        height: 25px !important;
+    }
+    .shopDel{
+        height: 20px !important;
+    }
+    .shopDone{
+        height: 20px !important;
+    }
+    .opBtn i{
+        line-height: 20px !important;
+    }
+    .containerAboutUs{
+        margin-top: 51px !important;
+        overflow: auto;
+    }
+    .memberIndividual{
+        height: 35vh !important;
+    }
+    .memberImg{
+        height: 34vh !important;
+        border-radius: 20px !important;
+    }
+}
+
+@media only screen and (max-device-width: 736px) and (max-device-height: 414px){
+    .userActivity{
+        transform: scale(.7);
+    }
+    .main{
+        /*margin-top: 50px !important;*/
+        min-height: 0 !important;
+    }
+}
+@media only screen and (device-width: 414px) and (device-height: 736px){
+    .userActivity{
+        margin-top: -70px !important;
+    }
+    .main{
+        margin-top: 60px !important;
+    }
+}
+@media only screen and (device-width: 375px) and (device-height: 667px){
+    .main{
+        margin-top: 30px !important;
+    }
+}
+@media only screen and (device-width: 736px) and (device-height: 414px){
+    .userActivity{
+        margin-top: 70px !important;
+    }
+}
+
+@media only screen and (max-device-width: 360px) and (max-device-height: 640px){
+    .menu{
+        height: 50vh !important;
+        width: 60vw !important;
+    }
+}
+@media only screen and (max-device-width: 812px) and (max-device-height: 375px){
+    .main{
+        min-height: 0 !important;
+    }
+}

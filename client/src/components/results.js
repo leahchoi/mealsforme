@@ -1,64 +1,119 @@
 import React, { Component } from 'react';
 import '../assets/css/results.css'
-import axios from 'axios';
 import OneResult from './individual_result_panel';
 import { connect } from 'react-redux';
-import { formatPostData, formatQueryString } from '../helpers';
-import { searchedRecipe, setDetailsOfItem, setDetailsId } from '../actions';
+import { searchedRecipe, setDetailsOfItem, setDetailsId, setPageNo, setInvalidSearch } from '../actions';
 import backButton from '../assets/images/back_arrow.png';
 import '../../node_modules/font-awesome/css/font-awesome.min.css';
-const BASE_URL = 'http://localhost:8000/server/getData.php';
 
 class Results extends Component {
-    page = 1;
     constructor(props) {
         super(props);
         this.state = {
             resultArray: '',
-            page: 0,
-        }
+            query: [],
+            scrollToTop: ''
+        };
         this.handleOnScroll = this.handleOnScroll.bind(this);
+        this.params = [];
+        this.dataToSend = [];
+        this.callInProgress = false;
     }
 
     componentDidMount() {
-        console.log('compoennet did mount called data')
-        this.props.searchedRecipe(this.props.userInputs, 0);
+       this.params = this.props.match.params;
+
+       this.dataToSend = [];
+
+        for(let key in this.params){
+            let item = this.params[key];
+            if(item !== undefined){
+                this.dataToSend.push(this.params[key]);
+            }
+        }
+        this.setState({
+            query: this.dataToSend
+        });
+
+        let pageNo = this.props.page.page;
+        this.props.searchedRecipe(this.dataToSend, pageNo);
+        this.props.setPageNo(pageNo);
         window.addEventListener('scroll', this.handleOnScroll);
     }
 
     componentWillUnmount() {
         window.removeEventListener('scroll', this.handleOnScroll);
+        this.props.setInvalidSearch();
     }
 
     goBack() {
         this.props.history.goBack();
     }
+
+    resultsValidGoBack(){
+        this.props.setInvalidSearch(true);
+        this.props.history.push('/');
+    }
     handleOnScroll() {
-        let scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
-        let scrollHeight = (document.documentElement && document.documentElement.scrollHeight) || document.body.scrollHeight;
-        let clientHeight = document.documentElement.clientHeight + 1 || window.innerHeight + 1; // changed client height to + 1
-        let scrolledToBottom = (parseInt(scrollTop + clientHeight)) >= scrollHeight;
-        console.log('log:', scrolledToBottom);
-        if (scrolledToBottom) {
-            console.log('scrolled to bottom');
-            console.log(this.props.userInputs);
-            this.props.searchedRecipe(this.props.userInputs, this.page);
-            this.page++;
-            scrolledToBottom = false;
+        // let scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+        // let scrollHeight = (document.documentElement && document.documentElement.scrollHeight) || document.body.scrollHeight;
+        // let clientHeight = document.documentElement.clientHeight || window.innerHeight; // changed client height to + 1
+        // let scrolledToBottom = (parseInt(scrollTop + clientHeight)) >= scrollHeight;
+        // if (scrolledToBottom) {
+        //     let pageNo = this.props.page.page;
+        //     console.log('page:', pageNo);
+        //     const response = this.props.searchedRecipe(this.dataToSend, pageNo);
+        //     console.log('response:', response);
+        //     this.props.setPageNo(pageNo);
+        //     scrolledToBottom = false;
+        // }
+
+        let scrollTop = document.documentElement.scrollTop;
+        let clientHeight = document.documentElement.clientHeight;
+        let scrollHeight = document.documentElement.scrollHeight;
+
+        let scrollBottom = scrollHeight - (scrollTop + clientHeight);
+        let scrolled = scrollBottom <= parseInt(clientHeight*.5);
+
+        if(scrolled && !this.callInProgress){
+            let pageNo = this.props.page.page;
+            // if(!this.callInProgress){
+                this.callInProgress = true;
+                this.props.searchedRecipe(this.dataToSend, pageNo).then(()=>{
+                    this.callInProgress = false;
+                });
+            // }
+            this.props.setPageNo(pageNo);
+        }
+        if(document.documentElement.scrollTop > document.documentElement.clientHeight){
+            this.setState({
+                scrollToTop: 'goToTop'
+            });
+        } else {
+            this.setState({
+                scrollToTop: 'hideGoToTop'
+            });
         }
     }
     render() {
         const { searchedIngredients } = this.props;
-        console.log('se:',searchedIngredients);
         let resultArray = '';
-        if(!this.props.userInputs.length){
+        if(this.props.match.url === '/results' || this.props.match.url === '/results/'){
             return <div className='goback'>
-                <h5>No Search Available</h5>
-                <button onClick={this.goBack.bind(this)} className='backBtn'>
-                    <img src={backButton} className='btn btn-small' />
-                </button>
-                Go Back
+                <div className="invalid_null-search">Go to home page and enter ingredients to see recipe.</div>
+                <div onClick={this.goBack.bind(this)} className='btn btn-small invalidGoBack'>
+                    <i className="material-icons">arrow_back</i>
                 </div>
+                </div>
+        } else if(this.props.searched_recipe_null && this.props.searchedIngredients.length === 0){
+            var userInputs = this.state.query.join(", ");
+            return (<div className='goback'>
+                <h6 className="center-align">You searched for: <b>{userInputs}</b></h6>
+                <h5 className="invalid_null-search">No recipe found.</h5>
+                <div onClick={this.goBack.bind(this)} className='backBtn'>
+                    <img src={backButton} className='btn btn-small' />
+                </div>
+            </div>)
         }
         //When loading,
         if (searchedIngredients.length <= 0) {
@@ -69,18 +124,25 @@ class Results extends Component {
         } else if (typeof (searchedIngredients[0]) === 'object') {
             resultArray = searchedIngredients.map((ele, index) => {
                 return (
-                    <OneResult key={ele.ID} id={ele.ID} title={ele.Name} details={ele} likes={ele.likes} imageSrc={ele.Image} />
+                    <OneResult key={ele.ID} id={ele.ID} title={ele.Name} details={ele} likes={ele.likes} imageSrc={ele.Image}/>
                 );
             });
         }
         return (
-            <div className= 'main-content mainPage'>
-                <h5 className='resultHeader'>Results for: {this.props.userInputs.join(", ")}</h5>
-            <div className= 'main-content'>
-                    {
-                        resultArray
-                    }      
-            </div>
+            <div className="resultsWholeContainer">
+                <div className= 'mainPage'>
+                    <h5 className='resultHeader'>Results for: {this.state.query.join(", ")}</h5>
+                    <div className="btn btn-primary resultValidGoBack" onClick={()=>this.resultsValidGoBack()}>Go Back</div>
+                    <div className= 'main-content center-align'>
+                        {
+                            resultArray
+                        }
+                    </div>
+                    <div className={`btn btn-floating red ${this.state.scrollToTop}`}
+                         onClick={()=> window.scrollTo(0, 0)}>
+                        <i className='material-icons'>keyboard_arrow_up</i>
+                    </div>
+                </div>
             </div>
         )
     }
@@ -89,8 +151,10 @@ class Results extends Component {
 function mapStateToProps(state){
     return {
         userInputs: state.search.ingredients,
-        searchedIngredients: state.search.searched_recipe
+        searchedIngredients: state.search.searched_recipe,
+        searched_recipe_null: state.search.searched_recipe_null,
+        page: state.page,
     }
 }
 
-export default connect(mapStateToProps, { searchedRecipe , setDetailsOfItem , setDetailsId })(Results);
+export default connect(mapStateToProps, { searchedRecipe , setDetailsOfItem , setDetailsId, setPageNo, setInvalidSearch })(Results);

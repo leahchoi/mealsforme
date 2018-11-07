@@ -1,8 +1,10 @@
 import types from '../actions/types';
+import React from "react";
 
 const DEFAULT_STATE = {
     ingredients: [],
     searched_recipe: [],
+    searched_recipe_null: false,
     details: '',
 };
 
@@ -24,11 +26,17 @@ function  searchResult(state = DEFAULT_STATE, action){
         case types.SEARCHED_RECIPE:
             if(Array.isArray(action.payload.data)){
                 return { ...state, searched_recipe: [ ...state.searched_recipe, ...action.payload.data]};
+            } else if(action.payload.data === null){
+                return { ...state, searched_recipe_null: true};
             }
         case types.DETAILS_PAGE:
             return { ...state, details: action.payload};
-        case types.CLEAR_RECIPES:
-            return {...state, searched_recipe: ''};
+        case types.CLEAR_SEARCHED_RECIPE:
+            return {...state, searched_recipe: []};
+        case types.INVALID_SEARCH:
+            return { ...state, searched_recipe_null: action.payload};
+        case types.RESET_DETAILS_PAGE:
+            return { ...state, details: '' };
         default:
             return state;
     }

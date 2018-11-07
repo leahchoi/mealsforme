@@ -22,10 +22,11 @@ $result = mysqli_query($conn, $query);
 if (mysqli_num_rows($result) > 0 ) {
    $output['data']=[];
    while( $row = mysqli_fetch_assoc($result) ){
+       $output['success'] = 'true';
        $output['data'][] = $row;
    }
 } else {
-   $output['errors'][] = 'Invalid Search ID. No data.';
+   $output['success'] = 'false';
 }
 
 $jsonOutput = json_encode($output);

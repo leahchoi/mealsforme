@@ -1,3 +1,16 @@
+.resultsWholeContainer {
+    position: absolute;
+    background-color: #a8a8a84f;
+    width: 100vw;
+    height: 100vh;
+}
+.resultContainer{
+    background-color: floralwhite;
+    vertical-align: top;
+}
+body{
+    margin: 0 !important;
+}
 .indivDish{
     border: 2px black solid;
     display: flex;
@@ -10,7 +23,8 @@
     background-color: grey;
     border-radius: 50%;
 }
-.main-content{
+.mainPage{
+    margin-top: 70px;
     background-color: #F5F5F5;
 }
 .loading-spinner, .goback{
@@ -21,15 +35,65 @@
 }
 .goback{
     display: block;
+    width: 90%;
 }
 .loading-spinner > *{
     font-size: 6rem;
 }
 
 .resultHeader{
-    margin-top: 0px;
     text-align: center;
-    margin-bottom: 30px;
     font-weight: bold;
+    padding-top: 11px;
 }
+h5{
+    margin-top: 0;
+}
+.goToTop{
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 3px 3px #00cf20;
+}
+.goToTop:hover{
+    animation-name: glowGo;
+    animation-duration: 500ms;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes glowGo {
+    from{
+        box-shadow: 0 0 5px 5px #cfcf3b;
+    }
+    to{
+        box-shadow: 0 0 1px 1px #cfaab3;
+    }
 
+}
+.goToTop > i{
+    font-size: 2rem;
+}
+.hideGoToTop{
+    display: none;
+}
+.invalid_null-search{
+    text-align: center;
+    font-size: 1.5rem;
+}
+.invalidGoBack{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.backBtn{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.resultValidGoBack{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 10px;
+}

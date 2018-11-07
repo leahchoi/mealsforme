@@ -7,12 +7,14 @@ function Member(props){
             <div className='memberPicture center-align'>
                 <img className='memberImg' src={props.image} />
             </div>
-            <div className='memberInfo'>
+            <div className='memberInfo center-block'>
                 <h5 className='left-align nameOfPerson'>{props.name}</h5>
                 <p className='title'>{props.title} </p>
-                <a className='linkedin' onClick={()=>props.clicked(props.linkedin)}>Linkedin</a>
-                <br/>
-                <a className='github' onClick={()=>props.clicked(props.github)} className='left-align'>GitHub</a>
+                <div className="memberResource">
+                    <a className='linkedin' href={props.linkedin} target="_blank"><i className="fab fa-linkedin"></i> Linkedin</a><br/>
+                    <a className='github' href={props.github} target="_blank"><i className="fab fa-github-square"></i> GitHub</a> <br/>
+                    <a className='github' href={props.portfolio} target="_blank"><i className="far fa-file-image"></i> Portfolio</a>
+                </div>
             </div>
         </div>
     );

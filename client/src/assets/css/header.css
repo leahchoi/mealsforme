@@ -1,28 +1,30 @@
-.header {
-    position: sticky !important;
+.header{
+    position: fixed !important;
     display: flex;
-    height: 10vh;
+    height: 70px;
     justify-content: space-between;
     background-color: #7F977C;
 }
 .header{
     position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
+    width: 100vw;
     z-index: 1000;
 }
-
-.headerBanner{
-    display: sticky;
-}
 .logo{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     height: 90%;
+    width: 7vh;
 }
 .hamicon{
     width: 60px;
     height: 50px;
-    margin-top: 14px;
+    /*margin-top: 14px;*/
     margin-right: 11px;
+    cursor: pointer;
 }
 .hamicon:hover{
     animation-name: bounceIn;
@@ -84,17 +86,17 @@
 }
 
 .backArrow{
-    background-color: #527E46;
-    width: 41.9px;
-    height: 32.39px
+    width: 42px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
-
 .headerBtn{
-    margin: 27% 0 0 15%;
     background-color: #527E45;
 }
 
-.material-icons{
-    margin-top: -7px;
-    margin-left: -11px;
+.nav-wrapper {
+    background-color: #7F977C;
 }

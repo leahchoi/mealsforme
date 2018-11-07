@@ -1,0 +1,21 @@
+@media only screen and (max-height: 250px){
+    .individualPanel{
+        height: 15px !important;
+        padding: 50px !important;
+    }
+    .favListItemName{
+        height: 14px !important;
+    }
+    .favListItemName > p{
+        line-height: 14px !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        top: 25% !important;
+    }
+    .dishContainer{
+        display: none !important;
+    }
+    .favTrash > i{
+        /*margin-left: 240%;*/
+    }
+}

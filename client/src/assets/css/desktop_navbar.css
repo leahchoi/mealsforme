@@ -1,0 +1,103 @@
+@media only screen and ( min-width: 600px) {
+    .header{
+        display: none;
+    }
+    .desktop_menu{
+        position: absolute;
+        height: 70px;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+    }
+    .desktop_menu ul{
+        float: right;
+
+    }
+    .nav-wrapper{
+        background-color: #7F977C;
+        width: 100vw;
+        height: 70px;
+    }
+    .nav-wrapper *{
+        height: 100%;
+    }
+
+    .desktop_menu ul > li{
+        list-style-type: none !important;
+    }
+
+    .desktop_logo{
+        display: inline-block;
+        width: 70px;
+        height: 70px;
+        border-radius: 20%;
+        background-color: rgba(255, 254, 208, 0.51);
+        background-image: url("../images/ourlogo.png");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        float: left;
+        margin-left: 2%;
+        cursor: pointer;
+        border: 4px solid #7F977C;
+    }
+    .main{
+        width: 100%;
+    }
+    .main-content{
+        /*margin-top: 5%;*/
+    }
+    .noFavInList > p{
+        text-align: center;
+        width: 100%;
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-top: 110px;
+    }
+    .main{
+        position: absolute;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+    .bgImg{
+        position: absolute;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+    .search_field input{
+        width: 40vw !important;
+    }
+    .userActivity{
+        margin-top: 70px;
+    }
+}
+@media only screen and ( max-width: 600px) {
+    .desktop_menu{
+        display: none;
+    }
+    .main{
+        margin-top: 60px;
+    }
+    .search_field{
+        margin-left: -25px;
+    }
+    .search_field input {
+        width: 60vw;
+    }
+    .directionLeft{
+        margin-left: -12vw;
+    }
+}
+@media only screen and ( min-width: 1000px) {
+    .wine_pairing_slider {
+        top: 2%;
+    }
+    .favWholeContainer{
+        left: 0;
+    }
+    .resultsWholeContainer{
+        left: 0;
+    }
+}

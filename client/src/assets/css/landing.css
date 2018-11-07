@@ -3,7 +3,13 @@
     background-color: #00d3ff;
 }
 
-.margin-top-zero{
+* {
+    font-family: 'Lato',
+        'Arial',
+        sans-serif;
+    text-rendering: optimizeLegibility;
+}
+.margin-top-zero {
     margin-top: 0;
 }
 
@@ -11,37 +17,54 @@
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: 90vh;
+    height: 100vh;
+    overflow: auto;
 }
-.main{
-    height: 90vh;
-    background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) );
+
+.main {
+    margin-top: 0;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.505), rgba(0, 0, 0, 0.505));
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-height: 500px;
 }
 
-.search_field{
-    width: 90%;
-    display: flex;
-    justify-content: flex-end;
+.search_field {
+    position: relative;
+    left: 0;
+    width: 70vw;
 }
 
-#ingAddMinImg {
-    width: 50px;
-    height: 50px;
-    margin: 0px;
+.ingInput {
+    background-color: #D2D3D8 !important;
+    border-radius: 5px !important;
+}
+
+.ingInput:focus {
+    background-color: #c0c1c8 !important;
+    color: green;
+}
+
+#ingAddImg {
+    display: inline-block;
+    width: 7vw;
+    font-size: 3rem;
+    cursor: pointer;
+    color: #05801a;
+    text-shadow: 1px 1px 2px black, 0 0 5px yellow, 0 0 5px white;
+    vertical-align: top;
 }
 
 .landPgSearchBtn {
-    width: 50vw;
-    background-color: #527E45;
+    width: 30vw;
+    background-color: #688867;
     text-shadow: 1px 1px 1px #000000;
-    border: 1px solid darkgreen;
-
+    border-radius: 5px;
 }
 
-.landPgSearchBtn > * {
+.landPgSearchBtn>* {
     color: white;
 }
 
@@ -54,31 +77,39 @@
 .ingredientBtns button {
     width: 100px;
     height: 40px;
-    color: white;
+    color: #f5f5f5;
     border-radius: 10px;
     text-shadow: 1px 1px 1px #000000;
 }
 
-button{
+button {
     margin: 2px;
 }
 
-
-.ingredientBtns button:hover{
-    box-shadow: 0 0 5px 2px #daf857;
-    color: #000000;
+.search_field.center-block>.center-block {
+    display: inline;
 }
 
-.directionLeft:hover{
-     text-shadow: 0 0 7px #0088ff;
-     color: #5c8000;
-     cursor: pointer;
-}
+/*.ingredientBtns button:hover {*/
+    /*box-shadow: 0 0 5px 2px #283127;*/
+    /*color: #767676;*/
+/*}*/
 
-.directionRight:hover{
+.directionLeft:hover {
     text-shadow: 0 0 7px #0088ff;
     color: #5c8000;
     cursor: pointer;
+}
+
+.directionRight:hover {
+    text-shadow: 0 0 7px #0088ff;
+    color: #5c8000;
+    cursor: pointer;
+}
+
+.landPgSearchBtn.btn:hover {
+    color: white;
+    background-color: #576a54;
 }
 
 /* .slogan > img{
@@ -87,44 +118,55 @@ button{
     animation: swing 10s linear alternate infinite;
     z-index: 1;
 } */
-.commonFoodHeader{
+.commonFoodHeader {
     text-align: center;
     margin: 10px auto;
-    text-shadow: 2px 2px 7px #8e8e8e;
+    font-weight: 300;
+    text-shadow: 2px 2px 5px #2e2e2e;
+    color: white;
+    text-transform: uppercase;
+    word-spacing: 4px;
 }
+
 @keyframes swing {
-    0%{
+    0% {
         transform: rotate(10deg);
     }
-    25%{
+
+    25% {
         transform: rotate(-10deg);
     }
-    50%{
+
+    50% {
         transform: translateX(0%);
     }
-    75%{
+
+    75% {
         transform: translateX(-10%);
     }
-    100%{
+
+    100% {
         transform: translateX(10%);
     }
 }
-@media only screen and (max-width: 500px) {
-    .slogan > img{
-        width: 30vw;
-        height: 50px;
-        animation: swing 10s linear alternate infinite;
-    }
-}
-.clearBtn{
-    border: 1px solid red;
+
+.clearBtn {
+    width: 30vw;
     border-radius: 5px;
     background-color: #FF8A80;
+    margin-top: 10px;
+    color: white;
 }
-.ingredients{
+
+.clearBtn:hover{
+    background-color: #ff4653;
+}
+
+.ingredientsLandPg {
     display: inline;
 }
-.commonFoodBubble{
+
+.commonFoodBubble {
     display: inline-block;
     margin: 5px;
     width: 10px;
@@ -133,7 +175,8 @@ button{
     border: 1px solid black;
     cursor: pointer;
 }
-.commonFoodBubbleActive{
+
+.commonFoodBubbleActive {
     display: inline-block;
     background-color: rgba(255, 194, 168, 0.51);
     margin: 5px;
@@ -143,29 +186,167 @@ button{
     box-shadow: 0 0 5px 3px green;
     cursor: pointer;
 }
-.clickPointer{
+
+.clickPointer {
     cursor: pointer;
+    margin: 0;
+    color: #ffffff;
 }
-.bgZoom{
+.clickPointer:hover{
+    animation-name: wobble;
+    animation-duration: 300ms;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes wobble {
+    0%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.bgZoom {
     transform: scale(1.2);
 }
-.emptyInput{
+
+.emptyInput {
     position: absolute;
     width: 0;
     height: 0;
     animation: error 2s;
 }
+
 input::placeholder {
     color: #424242;
 }
 
-@keyframes error{
-    20%{
+@keyframes error {
+    20% {
         width: 100px;
         height: 100px;
     }
-    100%{
+
+    100% {
         width: 200px;
         height: 200px;
     }
 }
+
+.ingredientInputError {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+    width: 25%;
+    height: 5%;
+    color: white;
+    background-color: rgba(255, 0, 0, 0.6);
+    border-radius: 10px;
+    font-size: 1.2rem;
+}
+
+.ingredientInputError>p {
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+}
+.inputFieldHeader {
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.99);
+    font-size: 200%;
+    text-transform: uppercase;
+}
+.nothingEnteredIsFalse {
+    display: none;
+}
+
+.nothingEntered {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+    width: 35%;
+    height: 5%;
+    color: white;
+    background-color: rgba(255, 0, 0, 0.6);
+    border-radius: 10px;
+    font-size: 1.2rem;
+}
+
+.nothingEntered>p {
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+}
+
+.emptyInputFieldFalse {
+    display: none;
+}
+
+.emptyInputField {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+    width: 25%;
+    height: 5%;
+    color: white;
+    background-color: rgba(255, 0, 0, 0.6);
+    border-radius: 10px;
+    font-size: 1.2rem;
+}
+
+.emptyInputField>p {
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+}
+
+@media only screen and (max-width: 500px) {
+    .slogan>img {
+        width: 30vw;
+        height: 50px;
+        animation: swing 10s linear alternate infinite;
+    }
+
+    .ingredientInputError {
+        width: 55%;
+    }
+
+    .nothingEntered {
+        width: 65%;
+    }
+
+    .emptyInputField {
+        width: 55%;
+    }
+}
+.userActivity{
+    background-color: rgba(255, 250, 240, 0.50);
+    width: 70vw;
+    padding: 20px;
+    box-shadow: 0 0 10px 10px rgba(255, 250, 240, 0.5);
+    min-width: 250px;
+}
+.chip{
+    background-color: #91c29b;
+    color: #000000;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* .directionRight{
+    font-size: 8rem;
+} */

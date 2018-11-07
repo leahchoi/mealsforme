@@ -1,0 +1,302 @@
+.todoWholeContainer{
+    background-color: rgba(168, 168, 168, 0.31);
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+}
+.shopping-todo-container{
+    position: absolute;
+    width: 100vw;
+    top: 60px;
+    left: 0;
+    padding-top: 2vh;
+}
+.shopping-todo-container ul{
+    padding-left: 0 !important;
+}
+.shopping-todo-container li{
+    margin-bottom: 1%;
+}
+.opBtn > div{
+    min-height: 30px;
+}
+.sNos{
+    display: inline-block;
+    width: 10%;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px;
+}
+.items{
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px;
+}
+.qtys{
+    display: inline-block;
+    width: 10%;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px;
+}
+.operations{
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+    font-weight: bold;
+}
+.shopTodo{
+    list-style-type: none !important;
+    background-color: floralwhite;
+    box-shadow: 1px 1px 1px 1px #cdcdcd;
+    height: 7vh;
+    min-height: 75px;
+    display: flex;
+    align-items: center;
+    min-width: 400px;
+}
+.sNo{
+    display: inline-block;
+    width: 10%;
+    text-align: center;
+}
+.item{
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+}
+.qty{
+    display: inline-block;
+    width: 10%;
+    font-size: 1.5rem;
+}
+.opBtn{
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+}
+.shopDel{
+    /*display: inline-block;*/
+    /*height: 5vh;*/
+    /*margin-right: 3%;*/
+    /*padding: 1px;*/
+    /*border-radius: 4px;*/
+    /*cursor: pointer;*/
+    /*width: 13vw;*/
+    /*background-color: #fbbe6d;*/
+    /*box-shadow: 0 0 1px 1px #bebebe;*/
+    /*color: white;*/
+    /*font-size: 1.2rem;*/
+    margin-right: 3%;
+}
+.shopDel:hover{
+    background-color: #fb6643;
+    color: black;
+    box-shadow: 0 0 1px 3px #bebebe;
+}
+.shopDone{
+    /*display: inline-block;*/
+    /*height: 5vh;*/
+    /*padding: 1px;*/
+    /*border-radius: 4px;*/
+    /*cursor: pointer;*/
+    width: 15vw;
+    /*background-color: #00a81a;*/
+    /*box-shadow: 0 0 1px 1px #bebebe;*/
+    /*color: white;*/
+    /*font-size: 1.2rem;*/
+}
+.shopDone:hover{
+    background-color: #44ddfb;
+    color: black;
+    box-shadow: 0 0 1px 3px #bebebe;
+}
+.taskDone{
+    text-decoration: line-through;
+    text-decoration-color: cornflowerblue;
+    color: green;
+    opacity: 0.8;
+}
+.btnDone{
+    background-color: red;
+}
+.shopTodo i{
+    vertical-align: bottom;
+}
+.shopTodo i:hover{
+    color: red;
+    cursor: pointer;
+}
+@media only screen and (max-width: 600px) {
+    .sNos{
+        width: 0vw;
+    }
+    .items{
+        width: 40vw;
+    }
+    .qtys{
+        width: 30vw;
+        text-align: left;
+    }
+    .operations{
+        width: 30vw;
+    }
+    .item{
+        position: absolute;
+        left: 0;
+        width: 40vw;
+        text-align: left;
+        padding-left: 5%;
+        font-size: 1.3rem;
+    }
+    .qty{
+        position: absolute;
+        left: 40vw;
+        width: 30vw;
+        font-size: 1.3rem;
+    }
+    .opBtn{
+        position: absolute;
+        left: 70vw;
+        width: 30vw;
+    }
+    .shopping-todo-container li{
+        height: 5vh;
+        box-shadow: 1px 1px 1px 1px #cdcdcd;
+    }
+}
+.nothingToShop{
+    display: none;
+}
+.nothingToShop > ul{
+    margin: 0;
+}
+@media only screen and (max-width: 650px) {
+    .shopDel{
+        width: 5vw;
+        height: 4.5vh;
+    }
+    .shopDone{
+        width: 5vw;
+        height: 4.5vh;
+    }
+    .opBtn span{
+        display: none;
+    }
+    .opBtn{
+        box-sizing: content-box;
+    }
+    .opBtn i{
+        line-height: 30px;
+    }
+}
+@media only screen and (max-width: 350px) {
+    .item{
+        width: 50vw;
+    }
+    .opBtn{
+        width: 50vw;
+        left: 50vw;
+    }
+    .shopTodo{
+        height: 15vh !important;
+    }
+    .shopDel{
+        width: 5vw;
+        height: 7vh;
+    }
+    .shopDone{
+        width: 5vw;
+        height: 7vh;
+    }
+    .opBtn i{
+        line-height: 7vh;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .opBtn span{
+        display: none;
+    }
+}
+@media only screen and (min-width: 1000px) {
+    .todoWholeContainer{
+        left: 0;
+    }
+}
+.nothingToShopHeader > p{
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+
+}
+.nothingToShopImg{
+    width: 50vw;
+    height: 50vh;
+    background-image: url("../images/emptycart.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin: auto;
+}
+.hideConfirmDelSL{
+    display: none;
+}
+.confirmDeletionSL{
+    position: fixed;
+    top: 75px;
+    left: 50%;
+    width: 400px;
+    height: 200px;
+    transform: translateX(-50%);
+    background-color: navajowhite;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 5px #cbcbcb;
+}
+.confirmDeletionSLHeader{
+    height: 20%;
+}
+.confirmDeletionSLHeader > h5{
+    margin: 0;
+    padding: 5px;
+    height: 100%;
+    color: #b40034;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.confirmDeletionSLBody{
+    height: 40%;
+    background-color: #bab374;
+}
+#shopDelContent{
+    position: relative;
+    text-transform: capitalize;
+    text-align: center;
+    color: white;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    margin: 0;
+}
+.confirmDeletionSLFooter{
+    position: relative;
+    height: 40%;
+}
+.btnsSL{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.btnSLOk{
+    margin:0 0 0 30px;
+}
+.btnSLCancel{
+    margin:0 30px 0 0;
+}

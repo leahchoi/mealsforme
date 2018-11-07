@@ -33,12 +33,12 @@ class SignUp extends Component{
 
         const {handleSubmit} = this.props;
         return (
-            userSignedUp ? `${this.props.history.push('/')}`
+            userSignedUp ? `${this.props.history.push('/login')}`
                 :
             <div className='signup'>
                 <form className='col' onSubmit={handleSubmit(this.userSignUp)}>
 
-                    <div className='row'>
+                    <div className='row f_l_names_signup'>
                         <div className='input-field col s6'>
                             <i className="material-icons prefix">person_outline</i>
                             <Field name='firstName' label='First Name' type='text' component={this.renderInput}/>
@@ -65,8 +65,11 @@ class SignUp extends Component{
                         <Field name='c_password' label='Confirm Password' type='password' component={this.renderInput} />
                     </div>
                     <div className='center'>
-                    <button type="submit" className="btn btn-small">Sign Up</button>
-                </div>
+                        <button type="submit" className="btn btn-small">Sign Up</button>
+                    </div>
+                    <div className='center'>
+                        <Link to="/login">Log In</Link>
+                    </div>
                 </form>
                
             </div>

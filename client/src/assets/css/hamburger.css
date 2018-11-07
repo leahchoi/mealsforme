@@ -7,10 +7,37 @@
     cursor: pointer;
     animation: bounce 1s;
 }
-
-.menu{
-    height: 29vh;
+.home{
+    margin-left: 10%;
 }
+.menu{
+    height: 40vh;
+    box-shadow: 0 0 2px 5px rgba(127, 202, 115, 0.6);
+}
+@media only screen and (min-width: 1000px){
+    .menu{
+        margin-right: 8%;
+        animation: rotateInDownRight 500ms;
+    }
+    @keyframes rotateInDownRight {
+        from {
+            -webkit-transform-origin: right bottom;
+            transform-origin: right bottom;
+            -webkit-transform: rotate3d(0, 0, 1, 45deg);
+            transform: rotate3d(0, 0, 1, 45deg);
+            opacity: 0;
+        }
+
+        to {
+            -webkit-transform-origin: right bottom;
+            transform-origin: right bottom;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+            opacity: 1;
+        }
+    }
+}
+
 @keyframes bounce {
     from,
     20%,
@@ -97,4 +124,10 @@
         -webkit-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
     }
+}
+.greetFont{
+    font-family: "Apple Chancery";
+}
+.hamMenuGreetingName {
+    text-transform: capitalize;
 }

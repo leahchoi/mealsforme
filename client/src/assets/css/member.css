@@ -1,30 +1,178 @@
-
-.memberInfo {
-    display: inline-block;
-    margin-right:10vw;
+.containerAboutUs{
+    min-width: 400px;
 }
 .memberIndividual{
-    /* background-color: rgba(141, 140, 128, 0.36); */
-    border-bottom: 2px solid #f5f5f5;
-    display: flex;
-    justify-content: space-evenly;
+    min-height: 200px;
 }
-
 img.memberImg {
-    height: 20vh;
-    border: 2px solid #7F977C;
-    border-radius: 40px;
-    box-shadow: 7px 7px 5px rgba(165, 165, 165, 0.73);
-    margin-left: 12vw;
+    min-width: 125px;
 }
+@media only screen and (max-width: 500px) {
+    .header{
+        height: 60px;
+    }
+    .memberInfo {
+        display: inline-block;
+    }
 
-.nameOfPerson{
-    font-weight: bold;
-    text-align: center;
+    .memberIndividual{
+        height: 22vh;
+        text-align: center;
+    }
+
+    .containerAboutUs{
+        margin-top: 60px;
+        height: 100vh;
+    }
+    .title{
+        height: 5vh !important;
+    }
+    .memberIndividual{
+        margin-bottom: 10px;
+    }
+    .memberInfo {
+        display: inline-block;
+    }
+
+    img.memberImg {
+        height: 200px;
+        border: 2px solid #7F977C;
+        border-radius: 40px;
+        box-shadow: 7px 7px 5px rgba(165, 165, 165, 0.73);
+        margin-left: 12vw;
+    }
+
+    .nameOfPerson{
+        font-weight: bold;
+        text-align: center;
+    }
+    .title{
+        font-weight: bold;
+        margin-bottom: -3px;
+        margin-top: -7px;
+    }
+    .linkedin , .github, .portfolio{
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+    }
 }
-.title{
-    font-weight: bold;
+/*@media only screen and (min-width: 600px) {*/
+    /*.containerAboutUs{*/
+        /*display: flex;*/
+
+    /*}*/
+/*}*/
+@media only screen and (max-width: 750px) and (min-width: 501px) {
+    .containerAboutUs{
+        margin-top: 125px;
+    }
+    .innerContainerAboutUs{
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .memberIndividual{
+        position: relative;
+        width: 250px;
+        margin: 5px;
+    }
+    .memberIndividual img{
+        position: relative;
+        width: 250px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 40px;
+    }
+    .memberInfo h5{
+        /*width: 27vh;*/
+    }
+    .nameOfPerson{
+        position: absolute;
+        top: 300px;
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+        color: #7e4e3b;
+        background-color: rgba(97, 218, 251, 0.80);
+        text-align: center;
+    }
+    .title{
+        position: absolute;
+        top: 327px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #000000;
+        background-color: rgba(97, 218, 251, 0.80);
+        border-radius: 0 0 40px 40px;
+        width: 100%;
+        height: 50px;
+        padding: 15px;
+        text-align: center;
+    }
+    .memberResource{
+        display: none;
+        position: absolute;
+        top: 200px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        background-color: rgba(186, 234, 251, 0.8);
+        text-align: center;
+    }
+    .memberIndividual:hover .memberResource{
+        display: inline-block;
+    }
+    .memberResource i {
+        color: black;
+    }
+    .memberResource a {
+        color: blue;
+        text-decoration: underline;
+    }
 }
-linkedin , github{
-    font-weight: bold;
+@media only screen and (min-width: 751px) {
+    .containerAboutUs{
+        position: absolute;
+        margin-top: 0;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+    }
+    .innerContainerAboutUs{
+        height: 90%;
+    }
+    .memberIndividual{
+        margin: 2%;
+        width: 46%;
+        padding: 10px;
+        display: inline-block;
+        box-shadow: 0 0 10px 10px rgba(162, 162, 162, 0.51);
+    }
+    .memberIndividual img{
+        position: relative;
+        width: 30%;
+        left: 0;
+        border-radius: 40px;
+        float: left;
+        margin-left: 15px;
+    }
+    .memberInfo *{
+        text-align: center;
+    }
+    .title{
+        height: 50px;
+    }
+}
+@media only screen and (min-width: 1000px) {
+    .containerAboutUs{
+        margin-top: 30px;
+    }
+}
+@media only screen and (min-width: 500px) and (max-width: 520px) {
+    .containerAboutUs{
+        margin-top: 70px;
+    }
 }

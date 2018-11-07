@@ -3,9 +3,13 @@ import { connect } from 'react-redux';
 
 class Directions extends Component{
     render(){
-        const directions = JSON.parse(this.props.directions.Instructions)[0].steps;
+        let directions = '';
+        {(this.props.directions)?
+            directions = JSON.parse(this.props.directions.Instructions)[0].steps : ''
+        }
+
         let directionList = '';
-        if(directions) {
+        if(directions !== '') {
             let directionListArray = directions.map((ele) => {
                 return ele.step;
             });
@@ -13,12 +17,12 @@ class Directions extends Component{
             directionListArray = directionListArray.split('.');
             directionList = directionListArray.map((ele, index) => {
                 return <li key={index}>{ele}</li>;
-            })
+            });
             directionList.pop();
         }
         return (
             <div className="directions">
-                <h4>Directions</h4>
+                <h5>Directions:</h5>
                 <ul>
                     {directionList}
                 </ul>

@@ -12,7 +12,6 @@ export default function (WrappedComponent, path='/') {
         }
 
         checkAuth(){
-            console.log('auth:', localStorage.userInfo);
             if(!localStorage.userInfo){
                 this.props.history.push(path);
             }

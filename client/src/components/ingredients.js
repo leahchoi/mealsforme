@@ -5,9 +5,9 @@ class Ingredients extends Component{
     render(){
         return (
             <section className="nutrition">
-                <ul className="ingredientsList">
+                <div className="ingredientsList">
                     {this.props.ingredients}
-                </ul>
+                </div>
             </section>
         );
     }

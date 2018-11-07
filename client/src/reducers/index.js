@@ -5,6 +5,7 @@ import login_status from './login_status_reducer';
 import { reducer as formReducer } from 'redux-form';
 import shoppingList from './shoppinglist_reducer';
 import favorites from './favorite_reducer';
+import pageReducer from './page_no_reducer';
 
 const rootReducer = combineReducers({
     search: searchRecipe,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
     logout: userLoginResponse,
     form: formReducer,
     shoppingList: shoppingList,
-    favorites: favorites
+    favorites: favorites,
+    page: pageReducer
 
 });
 
