@@ -1,28 +1,28 @@
 import types from './types';
 import { formatPostData, formatQueryString } from '../helpers';
 import axios from 'axios';
-// const BASE_URL = '/api/userauth/login.php';
-// const BASE_URL_SEARCH = '/api/server/getData.php';
-// //http://localhost:8000/api/server/getData.php';
-// const BASE_URL_SIGNUP = '/api/userauth/createuser.php';
-// const BASE_URL_RECIPE_SEARCH = '/api/server/getRecipe.php';
-// const FAV_URL_ADD = '/api/server/addFavorites.php';
-// const FAV_URL_GET = '/api/server/getFavorites.php';
-// const FAV_URL_DEL = '/api/server/deleteFavorite.php';
-// const ADD_TO_SHOPPINGLIST = '/api/server/shoppingList.php';
-// const DEL_FROM_SHOPPINGLIST = '/api/server/del_shoppingList.php';
-// const STATUS_SHOPPINGLIST = '/api/server/shoppingStatus.php';
+const BASE_URL = '/api/userauth/login.php';
+const BASE_URL_SEARCH = '/api/server/getData.php';
+//http://localhost:8000/api/server/getData.php';
+const BASE_URL_SIGNUP = '/api/userauth/createuser.php';
+const BASE_URL_RECIPE_SEARCH = '/api/server/getRecipe.php';
+const FAV_URL_ADD = '/api/server/addFavorites.php';
+const FAV_URL_GET = '/api/server/getFavorites.php';
+const FAV_URL_DEL = '/api/server/deleteFavorite.php';
+const ADD_TO_SHOPPINGLIST = '/api/server/shoppingList.php';
+const DEL_FROM_SHOPPINGLIST = '/api/server/del_shoppingList.php';
+const STATUS_SHOPPINGLIST = '/api/server/shoppingStatus.php';
 
-const BASE_URL = 'http://localhost:8000/userauth/login.php';
-const BASE_URL_SEARCH = 'http://localhost:8000/server/getData.php';
-const BASE_URL_SIGNUP = 'http://localhost:8000/userauth/createuser.php';
-const BASE_URL_RECIPE_SEARCH = 'http://localhost:8000/server/getRecipe.php';
-const FAV_URL_ADD = 'http://localhost:8000/server/addFavorites.php';
-const FAV_URL_GET = 'http://localhost:8000/server/getFavorites.php';
-const FAV_URL_DEL = 'http://localhost:8000/server/deleteFavorite.php';
-const ADD_TO_SHOPPINGLIST = 'http://localhost:8000/server/shoppingList.php';
-const DEL_FROM_SHOPPINGLIST = 'http://localhost:8000/server/del_shoppingList.php';
-const STATUS_SHOPPINGLIST = 'http://localhost:8000/server/shoppingStatus.php';
+// const BASE_URL = 'http://localhost:8000/userauth/login.php';
+// const BASE_URL_SEARCH = 'http://localhost:8000/server/getData.php';
+// const BASE_URL_SIGNUP = 'http://localhost:8000/userauth/createuser.php';
+// const BASE_URL_RECIPE_SEARCH = 'http://localhost:8000/server/getRecipe.php';
+// const FAV_URL_ADD = 'http://localhost:8000/server/addFavorites.php';
+// const FAV_URL_GET = 'http://localhost:8000/server/getFavorites.php';
+// const FAV_URL_DEL = 'http://localhost:8000/server/deleteFavorite.php';
+// const ADD_TO_SHOPPINGLIST = 'http://localhost:8000/server/shoppingList.php';
+// const DEL_FROM_SHOPPINGLIST = 'http://localhost:8000/server/del_shoppingList.php';
+// const STATUS_SHOPPINGLIST = 'http://localhost:8000/server/shoppingStatus.php';
 
 
 export function searchedRecipe(userIngredient, page){

@@ -51,7 +51,7 @@ if($_POST){
         exit();
     }
 
-    $queryInsert = "REPLACE INTO `shoppinglist` (`id`, `user_id`, `recipe_id`, `items`, `status`) VALUES (NULL, '$user_id', '$recipe_id', '$item', '$qty', '$status')";
+    $queryInsert = "REPLACE INTO `shoppinglist` (`id`, `user_id`, `recipe_id`, `items`, `quantity`,`status`) VALUES (NULL, '$user_id', '$recipe_id', '$item', '$qty', '$status')";
 
     $result = mysqli_query($conn, $queryInsert);
     if(mysqli_affected_rows($conn)>0) {
